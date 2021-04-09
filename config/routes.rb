@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :quizzes, only: [:new, :create, :show]
     resources :articles
     resources :contacts, only: [:new, :create, :show]
+    resources :searches, only: [:index]
   end
 
   namespace :admins do

@@ -1,2 +1,13 @@
-<h1>Public::Users#edit</h1>
-<p>Find me in app/views/public/users/edit.html.erb</p>
+<%= form_with model: @user, url: user_path(@user), local: true do |f| %>
+
+  <%= f.text_field :name %><br>
+  <%= f.text_field :email %><br>
+
+    <%= f.fields_for :items do |i|%>
+      <%= i.text_field :name, placeholder: "アイテム名" %>
+      <%= i.text_field :maker, placeholder: "メーカー" %><br>
+    <% end %><br>
+
+  <%= f.submit "編集完了" %>
+
+<% end %>

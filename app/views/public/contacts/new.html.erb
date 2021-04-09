@@ -1,1 +1,9 @@
-contactのnewページ
+<h5>お問い合わせフォーム</h5>
+
+<%= form_with model: @contact do |f| %>
+    <%= f.label :タイトル %><br>
+    <%= f.text_field :title %><br>
+    <%= f.label :お問い合わせ内容 %><br>
+    <%= f.text_field :message %><br>
+  <%= f.submit "送信" %>
+<% end %>

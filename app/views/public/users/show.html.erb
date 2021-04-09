@@ -1,2 +1,8 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+
+<p>あなたの最高得点は<%= @max_score %>点です</p>
+
+<% if 0 <= @max_score && @max_score <= 10 %>
+  <p>0～10点です</p>
+<% else %>
+  <p>10点以上です</p>
+<% end %>

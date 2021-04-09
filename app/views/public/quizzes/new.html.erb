@@ -1,2 +1,18 @@
-<h1>Public::Quizzes#new</h1>
-<p>Find me in app/views/public/quizzes/new.html.erb</p>
+<%= form_with model: @score, url: quizzes_path, local: true do |f| %>
+
+  <% @quizzes.each do |quiz| %>
+
+    <%= f.fields_for :results do |i| %>
+      <p><%= quiz.question %></p>
+      <label><%= i.radio_button :selection_result, 1 %><%= quiz.choice1 %></label>
+      <label><%= i.radio_button :selection_result, 2 %><%= quiz.choice2 %></label>
+      <label><%= i.radio_button :selection_result, 3 %><%= quiz.choice3 %></label>
+      <label><%= i.radio_button :selection_result, 4 %><%= quiz.choice4 %></label>
+      <%= i.hidden_field :quiz_id, value: quiz.id %>
+
+    <% end %>
+
+  <% end %>
+
+<p><%= f.submit "回答する" %></p>
+<% end %>

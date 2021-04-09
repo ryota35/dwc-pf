@@ -1,2 +1,27 @@
-<h1>Public::Quizzes#show</h1>
-<p>Find me in app/views/public/quizzes/show.html.erb</p>
+<h1>結果発表ページ</h1>
+<h1>あなたの得点は<%= @score.score %>点です！</h1>
+
+
+  <% @results.each do |result| %>
+
+    <p><%= result.quiz.question %></p>
+
+    <%= radio_button "result#{result.id}", "select", "1", disabled: true, checked: result.selection_result == 1 %><%= result.quiz.choice1 %>
+    <%= radio_button "result#{result.id}", "select", "2", disabled: true, checked: result.selection_result == 2 %><%= result.quiz.choice2 %>
+    <%= radio_button "result#{result.id}", "select", "3", disabled: true, checked: result.selection_result == 3 %><%= result.quiz.choice3 %>
+    <%= radio_button "result#{result.id}", "select", "4", disabled: true, checked: result.selection_result == 4 %><%= result.quiz.choice4 %>
+
+
+    <% if result.selection_result == result.quiz.answer %>
+      <p>正解だー</p>
+    <% else %>
+      <p>不正解だー</p>
+    <% end %>
+
+
+
+    <p>答え　<%= result.quiz.get_answer %></p>
+
+  <% end %>
+
+  <%= link_to "マイページへ", user_path(current_user) %>

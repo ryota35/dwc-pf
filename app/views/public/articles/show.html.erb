@@ -1,2 +1,10 @@
-<h1>Public::Articles#show</h1>
-<p>Find me in app/views/public/articles/show.html.erb</p>
+
+<h1>記事のshowページです</h1>
+
+<p><%= @article.title%></p>
+
+<p><%= safe_join(@article.body.split("\n"),tag(:br)) %></p>
+
+<p><%= @article.level%></p>
+
+<p><%= @reading_time %></p>

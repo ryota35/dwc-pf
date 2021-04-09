@@ -1,0 +1,12 @@
+
+"<%= @search %>" の検索結果
+
+<% if @articles.blank? %>
+  <p>検索結果がありません</p>
+<% else %>
+  <% @articles.each do |article| %>
+      <p><%= article.title %></p>
+      <p><%= article.body %></p>
+      <p><%= article.level %></p>
+  <% end %>
+<% end %>

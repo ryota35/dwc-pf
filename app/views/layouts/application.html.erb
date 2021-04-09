@@ -2,7 +2,7 @@
 <html>
 
   <head>
-    <title>NaganoCake</title>
+    <title>Best Smartphone Life</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,6 +10,8 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
   </head>
 
@@ -19,6 +21,15 @@
     <%= yield %>
 
     <%= render 'layouts/footer' %>
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 3,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    </script>
   </body>
 
 </html>

@@ -1,2 +1,24 @@
-<h1>Public::Articles#index</h1>
-<p>Find me in app/views/public/articles/index.html.erb</p>
+  <%= form_tag(searches_path,method: :get) do %>
+  <%= text_field_tag :search, "", placeholder: "何かお探しですか？" %>
+  <%= submit_tag 'search' %>
+  <% end %>
+
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% @articles.each do |article| %>
+        <div class="swiper-slide">
+          <%= link_to article_path(article) do %>
+          <p><%= article.title %></p>
+          <p><%= article.body %></p>
+          <p><%= article.level %></p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+
