@@ -13,7 +13,7 @@ Admin.create!(
 
 User.create!(
   email: "sasa@sasa.com",
-  name: "hoge",
+  name: Gimei.kanji,
   password: "sasasa"
   )
 
@@ -71,8 +71,8 @@ end
 10.times do |n|
   Article.create!(
     user_id: 1,
-    title: "sample#{n + 11}",
-    body: "sample#{n + 11}",
+    title: Faker::Lorem.characters(number:30),
+    body: Faker::Lorem.characters(number:800),
     level: 1
     )
   end
