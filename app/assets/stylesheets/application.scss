@@ -17,16 +17,27 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-body {
-  background-image: image-url("hoge.jpg");
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+body {
+  background-image: image-url("hoge.jpg");
+}
+
+.main {
+  height: 100vh;
+}
+
+.main-login {
+  height: 70vh;
+}
+
+footer{
+  height: 50px;
+}
 
 .swiper-container {
   width: 100%;
