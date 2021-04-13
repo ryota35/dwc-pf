@@ -5,7 +5,7 @@ class Public::ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.where(level: "初級")
+    @articles = Article.all.page(params[:page]).per(15).order("created_at DESC")
   end
 
   def create
@@ -19,21 +19,25 @@ class Public::ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @reading_time = @article.reading_time
   end
-  
+
   def edit
+    @article = Article.find(params[:id])
   end
 
   def update
+    article = Article.find(params[:id])
+    article.update(article_params)
+    redirect_to article_path(article)
   end
 
   def destroy
   end
-  
+
 
   private
 
     def article_params
-      params.require(:article).permit(:title, :body, :level)
+      params.require(:article).permit(:title, :body, :level, :image)
     end
 
 end

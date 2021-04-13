@@ -17,6 +17,26 @@
 
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
+
+
+// var title = "発火テストアラート";
+// alert(title);
+
+$(document).ready(function () {
+  $('#test').on('click', function() {
+    alert("クリックされました");
+  });
+});
+
+$(document).ready(function () {
+var swiper = new Swiper('.swiper-container', {
+    spaceBetween: 30,
+    slidesPerView: 4,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+});
 

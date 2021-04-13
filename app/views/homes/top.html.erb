@@ -1,39 +1,15 @@
-<div class="container">
-  <div class="row">
-    <h1>Homes#top</h1>
-    <p>topページ</p>
+
+<div class="container mt-5">
+
+  <div class="row mt-5">
+    <h1>トップページ</h1>
+    <%= render 'layouts/search-bar' %>
   </div>
+
+  <h1 class="mt-5">運営/新着記事</h1>
+  <%= render 'homes/article-slide', obj: @admin_articles %>
+
+  <h1 class="mt-5">会員/新着投稿・記事</h1>
+  <%= render 'homes/article-slide', obj: @user_articles %>
+
 </div>
-
-<%= form_tag(searches_path,method: :get) do %>
-  <%= text_field_tag :search, "", placeholder: "何かお探しですか？" %>
-  <%= submit_tag 'search' %>
-  <% end %>
-
-
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <% @articles.each do |article| %>
-        <div class="swiper-slide">
-          <%= link_to article_path(article) do %>
-          <p><%= article.title %></p>
-          <p><%= article.body %></p>
-          <p><%= article.level %></p>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-    <!-- Add Arrows -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </div>
-
-  <script>
-    var swiper = new Swiper('.swiper-container', {
-        slidesPerView: 3,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-      });
-  </script>

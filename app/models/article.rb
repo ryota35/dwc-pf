@@ -1,7 +1,8 @@
 class Article < ApplicationRecord
 
-  belongs_to :user
+  belongs_to :user, optional: true
   belongs_to :admin, optional: true
+  attachment :image
 
   enum level: { 初級: 0, 中級: 1, 上級: 2 }
 

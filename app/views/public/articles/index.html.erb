@@ -1,24 +1,28 @@
-  <%= form_tag(searches_path,method: :get) do %>
-  <%= text_field_tag :search, "", placeholder: "何かお探しですか？" %>
-  <%= submit_tag 'search' %>
-  <% end %>
+  <div class="container">
 
-
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <% @articles.each do |article| %>
-        <div class="swiper-slide">
-          <%= link_to article_path(article) do %>
-          <p><%= article.title %></p>
-          <p><%= article.body %></p>
-          <p><%= article.level %></p>
+    <div class="row pt-5">
+      <h1 class="ml-5">Latest Articles</h1>
+      <div class="d-flex align-items-center ml-auto">
+        <% if user_signed_in?%>
+          <%= link_to  new_article_path, class: 'btn border border-success mr-5 bg-light' do %>
+          <i class="fas fa-edit"></i>
+          <p class="mb-0">記事を書く</p>
           <% end %>
-        </div>
-      <% end %>
+        <% end %>
+        <%= render 'layouts/search-bar' %>
+      </div>
     </div>
-    <!-- Add Arrows -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+
+    <table class="table table-hover mt-5 bg-white">
+      <tbody>
+        <% @articles.each do |article| %>
+          <tr class="mt-3">
+        　 <td><%= link_to article_path(article) do %><%= attachment_image_tag article, :image, :fill, 200, 100, format: 'jpeg', fallback: 'img/no_image.png', size: '200x100' %><% end %></td>
+           <td class="h2"><%= link_to article.title, article_path(article) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  <%= paginate @articles %>
   </div>
-
-

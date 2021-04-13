@@ -11,13 +11,10 @@ class Quiz < ApplicationRecord
   class << self
 
     def quiz_set
-      low = Quiz.where(level: '初級')
-      low_question = low.sample(10)
-      middle = Quiz.where(level: '中級')
-      middle_question = middle.sample(10)
-      high = Quiz.where(level: '上級')
-      high_question = high.sample(10)
-      low_question + middle_question + high_question
+      low = Quiz.where(level: '初級').sample(10)
+      middle = Quiz.where(level: '中級').sample(10)
+      high = Quiz.where(level: '上級').sample(10)
+      low + middle + high
     end
 
   end

@@ -1,27 +1,31 @@
-<h1>結果発表ページ</h1>
-<h1>あなたの得点は<%= @score.score %>点です！</h1>
+<div class="container pt-5">
+  <h1 class="text-center"><span class="bg-light">結果発表</span></h1>
+  <h1 class="text-center"><span class="bg-light">あなたの得点は<%= @score.score %>点です！</span></h1>
 
+<div class="offset-2 col-md-8 bg-light">
 
   <% @results.each do |result| %>
 
-    <p><%= result.quiz.question %></p>
-
-    <%= radio_button "result#{result.id}", "select", "1", disabled: true, checked: result.selection_result == 1 %><%= result.quiz.choice1 %>
-    <%= radio_button "result#{result.id}", "select", "2", disabled: true, checked: result.selection_result == 2 %><%= result.quiz.choice2 %>
-    <%= radio_button "result#{result.id}", "select", "3", disabled: true, checked: result.selection_result == 3 %><%= result.quiz.choice3 %>
-    <%= radio_button "result#{result.id}", "select", "4", disabled: true, checked: result.selection_result == 4 %><%= result.quiz.choice4 %>
-
+    <h2 class="pt-5"><%= result.quiz.question %></h2>
+    <div class="d-flex pt-4">
+    <label class="d-flex align-items-center mr-5"><%= radio_button "result#{result.id}", "select", "1", disabled: true, checked: result.selection_result == 1 %><%= result.quiz.choice1 %></label>
+    <label class="d-flex align-items-center mr-5"><%= radio_button "result#{result.id}", "select", "2", disabled: true, checked: result.selection_result == 2 %><%= result.quiz.choice2 %></label>
+    <label class="d-flex align-items-center mr-5"><%= radio_button "result#{result.id}", "select", "3", disabled: true, checked: result.selection_result == 3 %><%= result.quiz.choice3 %></label>
+    <label class="d-flex align-items-center mr-5"><%= radio_button "result#{result.id}", "select", "4", disabled: true, checked: result.selection_result == 4 %><%= result.quiz.choice4 %></label>
+    </div>
 
     <% if result.selection_result == result.quiz.answer %>
-      <p>正解だー</p>
+      <p class="text-success">正解です</p>
     <% else %>
-      <p>不正解だー</p>
+      <p class="text-danger">不正解です</p>
     <% end %>
-
-
 
     <p>答え　<%= result.quiz.get_answer %></p>
 
   <% end %>
 
-  <%= link_to "マイページへ", user_path(current_user) %>
+  <p class="text-center my-5"><%= link_to "マイページへ", user_path(current_user), class:"btn btn-primary text-white px-5 py-3" %></p>
+
+</div>
+
+</div>
