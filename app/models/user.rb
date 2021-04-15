@@ -8,5 +8,9 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :items, dependent: :destroy
   accepts_nested_attributes_for :items
+  
+  attachment :image
 
+  validates :name, presence: true
+  validates :email, presence: true
 end

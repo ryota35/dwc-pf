@@ -3,7 +3,7 @@
     <div class="container mt-2">
       <!--<a class="logo" href="/"><span>naganoCAKE</span></a>-->
       <%= link_to root_path do %>
-      <%= image_tag 'img/logo3.png', size: '150x80' %>
+      <h1 class="font-weight-bolder bsl">B S L</h1>
       <% end %>
       <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">-->
       <!--  <span class="navbar-toggler-icon"></span>-->
@@ -24,7 +24,7 @@
           <li><%= link_to "お問い合わせ", new_contact_path, class: 'border rounded nav-link text-body px-4' %></li>
         <% elsif admin_signed_in? %>
           <li><%= link_to "記事一覧", admins_articles_path, class: 'border rounded nav-link text-body mr-4 px-4' %></li>
-          <li><%= link_to "クイズ問題一覧", admins_quizzes_path, class: 'border rounded nav-link text-body mr-4 px-4' %></li>
+          <li><%= link_to "クイズ問題一覧", admins_quizzes_path(sort: 0), class: 'border rounded nav-link text-body mr-4 px-4' %></li>
           <li><%= link_to "問い合わせ一覧", admins_contacts_path, class: 'border rounded nav-link text-body mr-4 px-4' %></li>
           <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'border rounded nav-link text-body px-4' %></li>
         <% else %>

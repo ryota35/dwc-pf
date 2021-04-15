@@ -164,9 +164,9 @@ end
     question: "サンプル問題です#{n + 1}",
     choice1: "サンプル選択肢#{n + 1}_1",
     choice2: "サンプル選択肢#{n + 1}_2",
-    choice3: "サンプル選択肢#{n + 1}_3",
-    choice4: "サンプル選択肢#{n + 1}_4",
-    answer: "3",
+    # choice3: "サンプル選択肢#{n + 1}_3",
+    # choice4: "サンプル選択肢#{n + 1}_4",
+    answer: "1",
     level: 0
   )
 end
@@ -194,3 +194,4 @@ end
     level: 2
   )
 end
+

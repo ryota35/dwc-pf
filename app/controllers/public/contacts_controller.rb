@@ -10,11 +10,12 @@ class Public::ContactsController < ApplicationController
       ContactMailer.contact_mail(@contact).deliver
       redirect_to contact_path(@contact)
     else
-      redirect_to root_path
+      render "new"
     end
   end
 
   def show
+    @contact = Contact.find(params[:id])
   end
 
   private

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_11_112817) do
+ActiveRecord::Schema.define(version: 2021_04_14_134246) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -92,6 +92,8 @@ ActiveRecord::Schema.define(version: 2021_04_11_112817) do
     t.string "choice_reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "mno_mvno"
+    t.string "image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

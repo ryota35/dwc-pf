@@ -7,6 +7,7 @@ class Public::QuizzesController < ApplicationController
   end
 
   def create
+
     score = Score.new(score_params)
     score.user_id = current_user.id
 
@@ -18,7 +19,6 @@ class Public::QuizzesController < ApplicationController
     else
       @score = Score.new
       @score.results.build
-      byebug
       @selection_results= score_params[:results_attributes].values.map{ |v| [v[:quiz_id], v[:selection_result]]}.to_h
       quiz_ids = score_params[:results_attributes].values.map{ |v| v[:quiz_id]}
       @quizzes = Quiz.where(id: quiz_ids)

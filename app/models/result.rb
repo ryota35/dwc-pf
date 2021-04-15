@@ -5,7 +5,6 @@ class Result < ApplicationRecord
   belongs_to :quiz
 
   validates :selection_result, presence: true
-  validates :judgement, presence: true
 
   def judge_answer
     quiz = Quiz.find(self.quiz_id)

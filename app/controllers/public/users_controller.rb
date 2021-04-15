@@ -14,14 +14,17 @@ class Public::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to request.referer
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      render "edit"
+    end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, items_attributes:[:id, :name, :maker])
+    params.require(:user).permit(:name, :email, :image, :smart_phone, :tablet, :mno_mvno, :background, :choice_reason, items_attributes:[:id, :name, :maker])
   end
 
 end
