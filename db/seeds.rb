@@ -15,15 +15,33 @@ Admin.create!(
   User.create!(
     email: "test#{n + 1}@test.com",
     name: Gimei.kanji,
-    password: "password"
+    password: "password",
+    image: File.open("./app/assets/images/img/user_image.jpg"),
+    smart_phone: "iphone SE 64GB",
+    tablet: "ipad mini5 64GB",
+    background: "20代、独身、一人暮らし、会社員、都内在住",
+    mno_mvno: "au 楽天",
+    choice_reason:
+    "仕事上PCなどを常に持ち運ぶことが多いため、他のデバイスは小型軽量を目指して選んでいます。
+    容量もクラウドを利用すれば少なくても問題ない、また本体の中に保存するデータが多いほどデータ移行が面倒になるのであまり使わないようにしています
+    電子書籍のダウンロードデータが一番容量を使っていますがそれを含めてもでも半分くらい(32GB)しか利用していません。
+    キャリアは特にこだわりがなく出来るだけ遅くない回線の中でキャンペーンなどを利用しつつMNPしてやりくりしています",
     )
 end
 
-Item.create!(
+Score.create!(
   user_id: 1,
-  name: "モバイルバッテリー",
-  maker: "anker"
-  )
+  score: 20
+)
+
+
+5.times do |n|
+  Item.create!(
+    user_id: 1,
+    name: "モバイルバッテリー#{n + 1}",
+    maker: "anker#{n + 1}"
+    )
+end
 
 10.times do |n|
   Article.create!(
@@ -195,3 +213,9 @@ end
   )
 end
 
+5.times do |n|
+  Contact.create!(
+    title: "test#{n + 1}",
+    message: "sample.message#{n + 1}"
+    )
+end

@@ -1,63 +1,40 @@
 <div class="container pt-5">
-  <h1 class="pt-5">クイズ問題一覧</h1>
-  <div class="row d-flex flex-column align-items-center pt-5">
+  <div class="row d-flex justify-content-center pt-5">
 
-    <div>
-      <%= link_to "初級", admins_quizzes_path(sort: 0), class:"btn btn-success px-4" %>
-      <%= link_to "中級", admins_quizzes_path(sort: 1), class:"btn btn-primary px-4" %>
-      <%= link_to "上級", admins_quizzes_path, class:"btn btn-danger px-4" %>
+    <div class="col-md-4">
+      <h1 class="pb-4 mb-4">クイズ作成</h1>
+      <%= form_with model: @quiz, url: admins_quizzes_path, local: true do |f| %>
+        <%= render "quiz-form", quiz: @quiz %>
+      <% end %>
     </div>
 
-    <% @quizzes.each do |quiz| %>
-      <div>
-        <%= quiz.question %><br>
-        <%= quiz.choice1 %>
-        <%= quiz.choice2 %>
-        <%= quiz.choice3 %>
-        <%= quiz.choice4 %>
+    <div class="col-md-7 offset-1">
+      <h1 class="pb-3">問題一覧</h1>
+      <div class="mb-5">
+        <%= link_to "初級", admins_quizzes_path(sort: 0), class:"btn btn-success px-4 mr-3" %>
+        <%= link_to "中級", admins_quizzes_path(sort: 1), class:"btn btn-primary px-4 mr-3" %>
+        <%= link_to "上級", admins_quizzes_path, class:"btn btn-danger px-4" %>
       </div>
-    <% end %>
 
-    <%= paginate @quizzes %>
+      <h2 class="pb-3"><<%= @quiz_level %>問題></h2>
 
-    <%= form_with model: @quiz, url: admins_quizzes_path, local:true do |f| %>
-      <h1>クイズ作成</h1>
-      <table class="table">
-        <tbody>
-          <tr>
-            <td><%= f.label :question %></td>
-            <td><%= f.text_field :question %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :choice1 %></td>
-            <td><%= f.text_field :choice1 %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :choice2 %></td>
-            <td><%= f.text_field :choice2 %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :choice3 %></td>
-            <td><%= f.text_field :choice3 %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :choice4 %></td>
-            <td><%= f.text_field :choice4 %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :answer %></td>
-            <td><%= f.number_field :answer, min: 1, max: 4 %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :level %></td>
-            <td><%= f.collection_select :answer, min: 1, max: 4 %></td>
-          </tr>
-          <tr>
-            <td colspan"2"><%= f.submit "作成する", class:"btn btn-success" %></td>
-          </tr>
-        </tbody>
-      </table>
-    <% end %>
+      <% @quizzes.each do |quiz| %>
+        <div class="d-flex align-items-center my-3">
+          <h5><%= quiz.question %></h5>
+          <span class=" ml-auto mr-3 "><%= link_to "編集",  edit_admins_quiz_path(quiz), class:"btn btn-success" %></span>
+          <%= link_to "削除", admins_quiz_path(quiz), method: :delete, data: { confirm: '本当に削除しますか？' }, class:"btn btn-danger" %>
+        </div>
+        <div class="border-bottom d-flex justify-content-between pb-4">
+          <span class="mr-5"><%= quiz.choice1 %></span>
+          <span class="mr-5"><%= quiz.choice2 %></span>
+          <span class="mr-5"><%= quiz.choice3 %></span>
+          <span><%= quiz.choice4 %></span>
+        </div>
+
+      <% end %>
+
+      <p><%= paginate @quizzes %></p>
+    </div>
 
   </div>
 </div>

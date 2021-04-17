@@ -1,2 +1,13 @@
-<h1>Admins::Articles#show</h1>
-<p>Find me in app/views/admins/articles/show.html.erb</p>
+<%= attachment_image_tag @article, :image, :fill, 200, 100, format: 'jpeg', fallback: 'img/no_image.png', size: '200x100' %>
+
+<p><%= @article.title%></p>
+
+<p><%= @reading_time %></p>
+
+<p><%= safe_join(@article.body.split("\n"),tag(:br)) %></p>
+
+<p><%= @article.level%></p>
+
+
+<%= link_to "編集",  edit_admins_article_path(@article), class:"btn btn-success" %>
+<%= link_to "削除", admins_article_path(@article), method: :delete, data: { confirm: '本当に削除しますか？' }, class:"btn btn-danger" %>

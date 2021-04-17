@@ -3,6 +3,9 @@ class Quiz < ApplicationRecord
   has_many :results, dependent: :destroy
 
   validates :question, presence: true
+  validates :choice1, presence: true
+  validates :choice2, presence: true
+  validates :level, presence: true
 
   enum level: { 初級: 0, 中級: 1, 上級: 2 }
 
@@ -21,16 +24,5 @@ class Quiz < ApplicationRecord
     end
 
   end
-# def get_answer
-#     if answer == 1
-#       choice1
-#     elsif answer == 2
-#       choice2
-#     elsif answer == 3
-#       choice3
-#     else
-#       choice4
-#     end
-# end
 
 end

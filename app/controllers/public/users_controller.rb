@@ -1,7 +1,20 @@
 class Public::UsersController < ApplicationController
 
   def show
+    @user = User.find(params[:id])
+    @items = @user.items
     @max_score = current_user.scores.maximum(:score)
+
+    if @max_score <= 15
+      @user_level = "初級"
+    elsif @max_score <= 25
+      @user_level = "中級"
+    else
+      @user_level = "上級"
+    end
+
+    @articles = Article.where(level: @user_level).limit(5).order("created_at DESC")
+    @user_articles = Article.where(user_id: @user).limit(5).order("created_at DESC")
   end
 
   def edit

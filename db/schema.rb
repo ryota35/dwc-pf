@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_14_134246) do
+ActiveRecord::Schema.define(version: 2021_04_15_151422) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -42,6 +42,13 @@ ActiveRecord::Schema.define(version: 2021_04_14_134246) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "items", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
@@ -51,7 +58,6 @@ ActiveRecord::Schema.define(version: 2021_04_14_134246) do
   end
 
   create_table "quizzes", force: :cascade do |t|
-    t.integer "result_id"
     t.string "question"
     t.string "choice1"
     t.string "choice2"

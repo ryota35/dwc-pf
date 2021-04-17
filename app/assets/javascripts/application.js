@@ -15,9 +15,12 @@
 //= require popper
 //= require bootstrap-sprockets
 
+
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+
+
 
 
 // var title = "発火テストアラート";

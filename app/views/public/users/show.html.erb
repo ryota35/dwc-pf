@@ -1,8 +1,93 @@
+<div class="container">
+  <div class="row pt-5">
 
-<p>あなたの最高得点は<%= @max_score %>点です</p>
+    <div class="col-md-5">
+      <h2>マイプロフィール</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="2"><%= attachment_image_tag @user, :image, :fill, 130, 150, format: "jpeg" %></td>
+          </tr>
+          <tr>
+            <td>お名前</td>
+            <td><%= @user.name %></td>
+          </tr>
+          <tr>
+            <td>スマホ</td>
+            <td><%= @user.smart_phone %></td>
+          </tr>
+          <tr>
+            <td>キャリア</td>
+            <td><%= @user.mno_mvno %></td>
+          </tr>
+          <tr>
+            <td>特徴</td>
+            <td><%= @user.background %></td>
+          </tr>
+          <tr>
+            <td>最高得点</td>
+            <td><%= @max_score %>点</td>
+          </tr>
+          <tr>
+            <td>ランク</td>
+            <td><%= @user_level %></td>
+          </tr>
+        </tbody>
+      </table>
 
-<% if 0 <= @max_score && @max_score <= 10 %>
-  <p>0～10点です</p>
-<% else %>
-  <p>10点以上です</p>
-<% end %>
+      <h2>アイテム's</h2>
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2"><%= attachment_image_tag @user, :image, :fill, 250, 150, format: "jpeg" %></th>
+          </tr>
+          <tr>
+            <th>アイテム名</th>
+            <th>メーカー</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+            <tr>
+              <td><%= item.name %></td>
+              <td><%= item.maker %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="col-md-7">
+      <h2>おすすめ記事</h2>
+      <table class="table border">
+        <tbody>
+          <% @articles.each do |article| %>
+          <tr>
+            <td><%= article.title %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <h2>投稿した記事</h2>
+      <table class="table border">
+        <tbody>
+          <% @user_articles.each do |article| %>
+          <tr>
+            <td>
+              <%= article.title %>
+              <% if @user = current_user %>
+                <%= link_to "編集する", edit_article_path(article) %>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+
+
