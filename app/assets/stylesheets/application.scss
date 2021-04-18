@@ -36,17 +36,17 @@ body {
 }
 
 .main {
-  min-height: calc(100vh - 170px);
+  min-height: calc(100vh - 120px);
   // padding-top: 100px;
   margin-bottom: 20px;
 }
 
 .main-login {
-  min-height: calc(80vh - 170px);
+  min-height: calc(100vh - 120px);
 }
 
 footer{
-  height: 150px;
+  height: 100px;
 }
 
 .error {
@@ -56,6 +56,35 @@ footer{
 
 p{
   overflow-wrap: break-word;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.pagination>li {
+  border: none;     /*枠線をなくす*/
+  color: #696969;  /*文字の色を変える*/
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;  /*文字の色を変える*/
+  border-radius: 20px;
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 20px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  background: #93c9ff;
+  border-radius: 20px;    /*角を丸くする*/
 }
 
 .swiper-container {
@@ -96,6 +125,10 @@ p{
 a:link, a:visited, a:hover, a:active {
   color: black;
   text-decoration: none;
+}
+
+.tag_link:hover {
+  color: red;
 }
 
 .contact-title {

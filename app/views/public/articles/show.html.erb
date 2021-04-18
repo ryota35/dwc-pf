@@ -1,6 +1,6 @@
 
 <div class="container">
-  <div class="row">
+  <div class="">
 
       <%= attachment_image_tag @article, :image, :fill, 200, 100, format: 'jpeg', fallback: 'img/no_image.png', size: '200x100' %>
 
@@ -9,6 +9,10 @@
       <div class="favorite_form">
         <%= render "public/favorites/favorite", article: @article %>
       </div>
+
+      <% @article.tags.each do |tag| %>
+        <span class= 'badge badge-primary'><%= tag.name %></span>
+      <% end %>
 
       <p><%= @reading_time %></p>
 

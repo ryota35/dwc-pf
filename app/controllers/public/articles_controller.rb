@@ -5,7 +5,39 @@ class Public::ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all.page(params[:page]).per(15).order("created_at DESC")
+    @tags = Tag.all
+
+    case (params[:sort])
+    when "0"
+      @tag = Tag.find(params[:tag_id])
+      @articles = @tag.articles.all.page(params[:page]).per(15).order("created_at DESC")
+    when "1"
+      @level = "初級"
+      if (params[:tag_id]).nil?
+        @articles = Article.where(level: "初級").page(params[:page]).per(15).order("created_at DESC")
+      else
+        @tag = Tag.find(params[:tag_id])
+        @articles = @tag.articles.where(level: "初級").page(params[:page]).per(15).order("created_at DESC")
+      end
+    when "2"
+      @level = "中級"
+      if (params[:tag_id]).nil?
+        @articles = Article.where(level: "中級").page(params[:page]).per(15).order("created_at DESC")
+      else
+        @tag = Tag.find(params[:tag_id])
+        @articles = @tag.articles.where(level: "中級").page(params[:page]).per(15).order("created_at DESC")
+      end
+    when "3"
+      @level = "上級"
+      if (params[:tag_id]).nil?
+        @articles = Article.where(level: "上級").page(params[:page]).per(15).order("created_at DESC")
+      else
+        @tag = Tag.find(params[:tag_id])
+        @articles = @tag.articles.where(level: "上級").page(params[:page]).per(15).order("created_at DESC")
+      end
+    else
+      @articles = Article.all.page(params[:page]).per(15).order("created_at DESC")
+    end
   end
 
   def create
@@ -45,7 +77,7 @@ class Public::ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit(:title, :body, :level, :image)
+      params.require(:article).permit(:title, :body, :level, :image, tag_ids: [])
     end
 
 end

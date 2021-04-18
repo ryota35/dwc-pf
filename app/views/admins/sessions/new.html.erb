@@ -9,12 +9,12 @@
         <%= f.email_field :email, autofocus: true, autocomplete: "email", size:50 %>
       </div>
 
-      <div class="field">
+      <div class="field pb-5">
         <%= f.label :パスワード %><br />
         <%= f.password_field :password, autocomplete: "current-password", size:50 %>
       </div>
 
-      <div class="actions mt-4">
+      <div class="actions">
         <%= f.submit "ログインする", class: 'btn btn-primary btn-lg btn-block' %>
       </div>
     <% end %>

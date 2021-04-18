@@ -16,12 +16,12 @@
         <%= f.password_field :password, autocomplete: "new-password", size:50 %>
       </div>
 
-      <div class="field mt-2">
+      <div class="field pt-2 pb-5">
         <%= f.label :パスワード（再入力） %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password", size:50 %>
       </div>
 
-      <div class="actions mt-4 text-center">
+      <div class="actions text-center">
         <%= f.submit "新規登録する", class: 'btn btn-success btn-lg btn-block' %>
       </div>
     <% end %>

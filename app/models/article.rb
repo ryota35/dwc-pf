@@ -4,6 +4,9 @@ class Article < ApplicationRecord
   belongs_to :admin, optional: true
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :article_tag_relations, dependent: :destroy
+  has_many :tags, through: :article_tag_relations, dependent: :destroy
+
   attachment :image
 
   enum level: { 初級: 0, 中級: 1, 上級: 2 }

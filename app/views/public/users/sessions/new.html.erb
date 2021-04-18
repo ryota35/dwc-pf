@@ -4,17 +4,17 @@
     <h2 class="mb-5">ログイン</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field mb-3">
+      <div class="field pb-3">
         <%= f.label :メールアドレス %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", size:50 %>
       </div>
 
-      <div class="field">
+      <div class="field pb-5">
         <%= f.label :パスワード %><br />
         <%= f.password_field :password, autocomplete: "current-password", size:50 %>
       </div>
 
-      <div class="actions mt-4">
+      <div class="actions">
         <%= f.submit "ログインする", class: "btn btn-primary btn-lg btn-block" %>
       </div>
     <% end %>
