@@ -29,6 +29,7 @@ class Public::QuizzesController < ApplicationController
   end
 
   def show
+
     @score = Score.find(params[:id])
     @results = @score.results
   end

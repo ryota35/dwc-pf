@@ -113,7 +113,14 @@ a:link, a:visited, a:hover, a:active {
   height: 500px;
 }
 
+.favorite_create_icon {
+  font-size: 15px;
+}
 
+.favorite_delete_icon {
+  font-size: 15px;
+  color: #f3e524;
+}
 
 @media only screen and (max-width:600px) {
 

@@ -5,15 +5,20 @@
   <div class="row offset-2 col-md-8 justify-content-center bg-light mt-5">
     <div class="d-flex flex-column">
       <% @results.each do |result| %>
-
         <h2 class="pt-5"><%= result.quiz.question %></h2>
-
-        <div class="d-flex pt-4">
-        <label class="d-flex align-items-center mr-5"><%= radio_button_tag "result#{result.id}", "select", "1", disabled: true, checked: result.selection_result == 1 %><%= result.quiz.choice1 %></label>
-        <label class="d-flex align-items-center mr-5"><%= radio_button_tag "result#{result.id}", "select", "2", disabled: true, checked: result.selection_result == 2 %><%= result.quiz.choice2 %></label>
-        <label class="d-flex align-items-center mr-5"><%= radio_button_tag "result#{result.id}", "select", "3", disabled: true, checked: result.selection_result == 3 %><%= result.quiz.choice3 %></label>
-        <label class="d-flex align-items-center mr-5"><%= radio_button_tag "result#{result.id}", "select", "4", disabled: true, checked: result.selection_result == 4 %><%= result.quiz.choice4 %></label>
-        </div>
+        <% if result.quiz.choice3.nil? %>
+          <div class="d-flex pt-4">
+            <label class="d-flex align-items-center mr-5"><%= radio_button "result#{result.id}", "select", "1", disabled: true, checked: result.selection_result == 1 %><%= result.quiz.choice1 %></label>
+            <label class="d-flex align-items-center mr-5"><%= radio_button "result#{result.id}", "select", "2", disabled: true, checked: result.selection_result == 2 %><%= result.quiz.choice2 %></label>
+          </div>
+        <% else %>
+          <div class="d-flex pt-4">
+            <label class="d-flex align-items-center mr-5"><%= radio_button "result#{result.id}", "select", "1", disabled: true, checked: result.selection_result == 1 %><%= result.quiz.choice1 %></label>
+            <label class="d-flex align-items-center mr-5"><%= radio_button "result#{result.id}", "select", "2", disabled: true, checked: result.selection_result == 2 %><%= result.quiz.choice2 %></label>
+            <label class="d-flex align-items-center mr-5"><%= radio_button "result#{result.id}", "select", "3", disabled: true, checked: result.selection_result == 3 %><%= result.quiz.choice3 %></label>
+            <label class="d-flex align-items-center mr-5"><%= radio_button "result#{result.id}", "select", "4", disabled: true, checked: result.selection_result == 4 %><%= result.quiz.choice4 %></label>
+          </div>
+        <% end %>
 
         <% if result.selection_result == result.quiz.answer %>
           <p class="text-success">正解です</p>

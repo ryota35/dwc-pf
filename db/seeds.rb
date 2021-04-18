@@ -219,3 +219,11 @@ end
     message: "sample.message#{n + 1}"
     )
 end
+
+5.times do |n|\
+  Comment.create!(
+    user_id: 1,
+    article_id: 40,
+    comment: "サンプルコメント#{n + 1}"
+    )
+end

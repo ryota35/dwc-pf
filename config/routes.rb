@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   }
 
   scope module: :public do
-    resources :articles
+    resources :articles do
+      resources :comments, only: [:create, :destroy]
+    end
     resources :users, only: [:show, :edit, :update]
     resources :quizzes, only: [:new, :create, :show]
     resources :contacts, only: [:new, :create, :show]

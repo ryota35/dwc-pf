@@ -59,7 +59,8 @@
     </div>
 
     <div class="col-md-7">
-      <h2>おすすめ記事</h2>
+      
+      <h2>レベル別:おすすめ記事</h2>
       <table class="table border">
         <tbody>
           <% @articles.each do |article| %>
@@ -69,6 +70,7 @@
           <% end %>
         </tbody>
       </table>
+      
       <h2>投稿した記事</h2>
       <table class="table border">
         <tbody>
@@ -84,6 +86,23 @@
           <% end %>
         </tbody>
       </table>
+      
+      <h2>お気に入り記事</h2>
+      <table class="table border">
+        <tbody>
+          <% @user_favorite_articles.each do |article| %>
+          <tr>
+            <td>
+              <%= article.title %>
+              <% if @user = current_user %>
+                <%= link_to "編集する", edit_article_path(article) %>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      
     </div>
 
   </div>

@@ -3,6 +3,7 @@ class Article < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :admin, optional: true
   has_many :favorites, dependent: :destroy
+  has_many :comments, dependent: :destroy
   attachment :image
 
   enum level: { 初級: 0, 中級: 1, 上級: 2 }

@@ -18,6 +18,8 @@ class Public::ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @reading_time = @article.reading_time
+    @comments = @article.comments
+    @comment = Comment.new
   end
 
   def edit
