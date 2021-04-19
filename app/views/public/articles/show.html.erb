@@ -20,25 +20,26 @@
 
       <p><%= @article.level%></p>
 
-
-      <%= link_to "編集",  edit_article_path(@article), class:"btn btn-success" %>
-      <%= link_to "削除", article_path(@article), method: :delete, data: { confirm: '本当に削除しますか？' }, class:"btn btn-danger" %>
+      <% if current_user = @article.user %>
+        <%= link_to "編集",  edit_article_path(@article), class:"btn btn-success" %>
+        <%= link_to "削除", article_path(@article), method: :delete, data: { confirm: '本当に削除しますか？' }, class:"btn btn-danger" %>
+      <% end %>
 
   </div>
 
-    <div>
+  <div>
 
-      <h2>コメント</h2>
+    <h2>コメント</h2>
 
-      <div class="comment-index">
-        <%= render "public/comments/comment-index", comments: @comments, article: @article %>
-      </div>
-
-      <div class="new-comment">
-        <%= render "public/comments/new-comment", comment: @comment, article: @article %>
-      </div>
-
+    <div class="comment-index">
+      <%= render "public/comments/comment-index", comments: @comments, article: @article %>
     </div>
+
+    <div class="new-comment">
+      <%= render "public/comments/new-comment", comment: @comment, article: @article %>
+    </div>
+
+  </div>
 
 </div>
 

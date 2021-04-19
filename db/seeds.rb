@@ -31,7 +31,7 @@ end
 
 Score.create!(
   user_id: 1,
-  score: 20
+  score: 28
 )
 
 

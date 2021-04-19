@@ -26,22 +26,38 @@
 // var title = "発火テストアラート";
 // alert(title);
 
-$(document).ready(function () {
-  $('#test').on('click', function() {
-    alert("クリックされました");
-  });
-});
+// $(document).ready(function () {
+//   $('#test').on('click', function() {
+//     alert("クリックされました");
+//   });
+// });
+
 
 $(document).ready(function () {
 var swiper = new Swiper('.swiper-container', {
     spaceBetween: 30,
-    slidesPerView: 4,
+    slidesPerView: 1,
+    breakpoints: {
+    768: {
+      slidesPerView: 2,
+    },
+    980: {
+      slidesPerView: 3,
+    },
+    1200: {
+      slidesPerView: 4,
+    }
+  },
+
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
+
     },
   });
 });
+
+
 
 $(function(){
   $('.bsl').hover(function(){

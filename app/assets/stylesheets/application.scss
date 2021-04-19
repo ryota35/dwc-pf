@@ -23,6 +23,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   background-color: #f3f3f3;
 }
@@ -54,8 +58,31 @@ footer{
   color: red;
 }
 
-p{
+p {
   overflow-wrap: break-word;
+}
+
+.top-image {
+  background-image: url("img/top-image2.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 450px;
+  border-radius: 30px;
+}
+
+.top-group {
+  border-radius: 30px;
+  border: 5px solid gray;
+}
+
+.top-text {
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: 'Corben', cursive;
+}
+
+.top-sentence {
+  font-weight: bold;
 }
 
 .pagination {
@@ -90,26 +117,13 @@ p{
 .swiper-container {
   width: 100%;
   height: 100%;
+  padding: 10px;
 }
 
 .swiper-slide {
   text-align: center;
   font-size: 18px;
   background: #fff;
-
-  // Center slide text vertically
-  // display: -webkit-box;
-  // display: -ms-flexbox;
-  // display: -webkit-flex;
-  // display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
   border: solid 1px black;
 }
 
@@ -165,6 +179,28 @@ a:link, a:visited, a:hover, a:active {
 .contact-title-message {
   width: 350px;
   height: 300px;
+}
+
+.top-image {
+  background-image: url("img/top-image2.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 200px;
+  border-radius: 30px;
+}
+
+.top-group {
+  border-radius: 30px;
+  height: 100px;
+  border: 5px solid gray;
+}
+
+.top-text {
+  font-size: 1rem;
+}
+
+.top-sentence {
+  display: none;
 }
 
 }
