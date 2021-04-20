@@ -1,4 +1,7 @@
 class Admins::QuizzesController < ApplicationController
+  before_action :authenticate_admin!
+  
+  
   def index
     case (params[:sort])
     when "0"

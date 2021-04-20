@@ -7,7 +7,6 @@
     <%= form_with model: @score, url: quizzes_path, local: true do |f| %>
 
       <% if @selection_results.nil? %>
-
         <% @quizzes.each do |quiz| %>
           <% if quiz.choice3.nil? %>
             <%= f.fields_for :results do |i| %>
@@ -33,11 +32,11 @@
         <% end %>
 
       <% else %>
-
+        <p class="pt-5 font-weight-bold text-danger">未回答の問題があります</p>
         <% @quizzes.each do |quiz| %>
           <% if quiz.choice3.nil? %>
             <%= f.fields_for :results do |i| %>
-              <h2 class="pt-5"><%= quiz.question %></h2>
+              <h2 class="pt-3"><%= quiz.question %></h2>
                 <div class="d-flex pt-4">
                 <label class="d-flex align-items-center mr-5"><%= i.radio_button :selection_result, 1, checked: @selection_results[quiz.id.to_s] == '1', class:"mt-0" %><p class="mb-0"><%= quiz.choice1 %></p></label>
                 <label class="d-flex align-items-center mr-5"><%= i.radio_button :selection_result, 2, checked: @selection_results[quiz.id.to_s] == '2', class:"mt-0" %><p class="mb-0"><%= quiz.choice2 %></p></label>
@@ -46,7 +45,7 @@
             <% end %>
           <% else %>
             <%= f.fields_for :results do |i| %>
-              <h2 class="pt-5"><%= quiz.question %></h2>
+              <h2 class="pt-3"><%= quiz.question %></h2>
                 <div class="d-flex pt-4">
                 <label class="d-flex align-items-center mr-5"><%= i.radio_button :selection_result, 1, checked: @selection_results[quiz.id.to_s] == '1', class:"mt-0" %><p class="mb-0"><%= quiz.choice1 %></p></label>
                 <label class="d-flex align-items-center mr-5"><%= i.radio_button :selection_result, 2, checked: @selection_results[quiz.id.to_s] == '2', class:"mt-0" %><p class="mb-0"><%= quiz.choice2 %></p></label>

@@ -5,6 +5,7 @@ class Quiz < ApplicationRecord
   validates :question, presence: true
   validates :choice1, presence: true
   validates :choice2, presence: true
+  validates :answer, presence: true
   validates :level, presence: true
 
   enum level: { 初級: 0, 中級: 1, 上級: 2 }

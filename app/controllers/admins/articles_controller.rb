@@ -1,4 +1,7 @@
 class Admins::ArticlesController < ApplicationController
+  before_action :authenticate_admin!
+  
+  
   def new
     @article = Article.new
   end

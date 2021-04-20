@@ -14,7 +14,7 @@ ja:
       result:
         selection_result: 選択
       user:
-        name: 名前
+        name: お名前（ニックネーム）
         email: メールアドレス
         image: プロフィール画像
         smart_phone: スマートフォン

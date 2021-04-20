@@ -10,6 +10,10 @@ class Article < ApplicationRecord
   attachment :image
 
   enum level: { 初級: 0, 中級: 1, 上級: 2 }
+  
+  validates :title, presence: true, length: {maximum: 50}
+  validates :body, presence: true
+  validates :level, presence: true
 
   def reading_time
     reading_time = body.length / 10
