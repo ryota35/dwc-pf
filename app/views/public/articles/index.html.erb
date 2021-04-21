@@ -4,7 +4,7 @@
       <h1 class="ml-4">Latest Articles</h1>
       <div class="d-flex align-items-center ml-auto mr-5">
 
-        <% if user_signed_in? && current_user.scores.maximum(:score) >= 25 %>
+        <% if user_signed_in? && Score.exists?(user_id: current_user.id) && current_user.scores.maximum(:score) >= 25 %>
           <%= link_to  new_article_path, class: 'btn border border-dark mr-5 bg-light' do %>
           <i class="fas fa-edit"></i>
           <p class="mb-0">記事を書く</p>

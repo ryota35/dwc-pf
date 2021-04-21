@@ -61,7 +61,7 @@ var swiper = new Swiper('.swiper-container', {
 
 $(function(){
   $('.bsl').hover(function(){
-    $(this).text('B(est) S(martphone) L(ife)');
+    $(this).text('B(est) S(mart) L(ife)');
   },  function(){
     $(this).text('B S L');
   });

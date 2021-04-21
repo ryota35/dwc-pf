@@ -15,6 +15,14 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "guest_user"
+
+    end
+  end
+
   def favorite?(article)
     favorites.where(article_id: article).exists?
   end

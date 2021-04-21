@@ -10,7 +10,7 @@ class Article < ApplicationRecord
   attachment :image
 
   enum level: { 初級: 0, 中級: 1, 上級: 2 }
-  
+
   validates :title, presence: true, length: {maximum: 50}
   validates :body, presence: true
   validates :level, presence: true
@@ -18,9 +18,9 @@ class Article < ApplicationRecord
   def reading_time
     reading_time = body.length / 10
     if reading_time < 1
-      p "この記事の読了目安時間は1分以内です。"
+      p "読了目安時間 1分以内"
     else
-      p ("この記事の読了目安時間は#{reading_time}分です")
+      p ("読了目安時間 #{reading_time}分")
     end
   end
 

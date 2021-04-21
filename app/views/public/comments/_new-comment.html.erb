@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
-  <%= form_with(model: [article, comment], remote: true) do |f| %>
-    <%= f.text_area :comment %><br>
-    <%= f.submit "コメントする" %>
+  <%= form_with(model: [article, comment], local: false) do |f| %>
+    <%= f.text_area :comment, class:"form-control", rows:5 %><br>
+    <%= f.submit "コメントする", class:"pull-right" %>
   <% end %>
 <% end %>

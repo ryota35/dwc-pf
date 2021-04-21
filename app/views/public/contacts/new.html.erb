@@ -1,6 +1,7 @@
-<div class="main d-flex align-items-center justify-content-center">
-  <div class="p-5 bg-light">
-    <h2 class="mb-5">お問い合わせフォーム</h2>
+<div class="container">
+  <div class="row d-flex flex-column align-items-center">
+    <div class="col-md-6 mt-5 bg-light">
+    <h1 class="font-weight-bold my-5">お問い合わせフォーム</h1>
 
     <%= render 'layouts/errors', obj: @contact %>
 
@@ -8,18 +9,18 @@
 
         <div class="form-group">
           <%= f.label :"タイトル(50文字まで)", class:"contact-title" %><br>
-          <%= f.text_field :title, autofocus: true, class:"js-text contact-title-text" %><br>
+          <%= f.text_field :title, autofocus: true, class:"form-control form-control-lg js-text" %><br>
           <P class="js-text-count pull-right"></P>
         </div>
 
         <div class="form-group mt-5">
           <%= f.label :message, class:"contact-title" %><br>
-          <%= f.text_area :message, class:"contact-title-message" %><br>
+          <%= f.text_area :message, class:"form-control", rows:20 %><br>
         </div>
 
       <%= f.submit "送信する", class:"btn btn-primary pull-right px-5 py-3" %>
 
     <% end %>
-
+</div>
   </div>
 </div>

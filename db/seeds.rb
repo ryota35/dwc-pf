@@ -218,6 +218,56 @@ end
   )
 end
 
+ Quiz.create!(
+    question: "利用中のスマホの機種が分かる",
+    choice1: "はい",
+    choice2: "いいえ",
+    answer: "1",
+    level: 0
+  )
+
+ Quiz.create!(
+    question: "利用中の料金プランの内容はおおむね把握している",
+    choice1: "はい",
+    choice2: "いいえ",
+    answer: "1",
+    level: 0
+  )
+
+ Quiz.create!(
+    question: "月の通信費の内訳(端末代、通話プラン、データプランetc)をおおむね把握している",
+    choice1: "はい",
+    choice2: "いいえ",
+    answer: "1",
+    level: 0
+  )
+
+ Quiz.create!(
+    question: "市販のWi-FIルーターで見かける接続可能な周波数帯はどれ？",
+    choice1: "3.6と6Ghz",
+    choice2: "2.1と4.8Ghz",
+    choice3: "2.4と5Ghz",
+    choice4: "3.7と8.3Ghz",
+    answer: "3",
+    level: 1
+  )
+
+ Quiz.create!(
+    question: "e-SIMとはどんな技術か知っている、または使ったことがある",
+    choice1: "はい",
+    choice2: "いいえ",
+    answer: "1",
+    level: 2
+  )
+
+ Quiz.create!(
+    question: "Bluetoothの名前の由来を知っている",
+    choice1: "はい",
+    choice2: "いいえ",
+    answer: "1",
+    level: 2
+  )
+
 20.times do |n|
   Quiz.create!(
     question: "サンプル問題です#{n + 21}",
