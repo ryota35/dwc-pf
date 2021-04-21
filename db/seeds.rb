@@ -14,7 +14,7 @@ Admin.create!(
 5.times do |n|
   User.create!(
     email: "test#{n + 1}@test.com",
-    name: Gimei.kanji,
+    name: "test#{n + 1}",
     password: "password",
     image: File.open("./app/assets/images/img/user_image.jpg"),
     smart_phone: "iphone SE 64GB",
