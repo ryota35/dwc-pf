@@ -1,0 +1,10 @@
+<% if current_user.nil? %>
+<% elsif current_user.favorite?(article) %>
+  <%= link_to favorite_path(article), method: :delete, remote: true do %>
+  <i class="fas fa-star favorite_delete_icon"></i>
+  <% end %>
+<% else %>
+  <%= link_to favorites_path(id: article), method: :post, remote: true do %>
+  <i class="far fa-star favorite_create_icon"></i>
+  <% end %>
+<% end %>

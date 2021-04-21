@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_082138) do
+ActiveRecord::Schema.define(version: 2021_04_18_085422) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 2021_04_09_082138) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "article_tag_relations", force: :cascade do |t|
+    t.integer "article_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "articles", force: :cascade do |t|
     t.integer "user_id"
     t.integer "admin_id"
@@ -32,11 +39,27 @@ ActiveRecord::Schema.define(version: 2021_04_09_082138) do
     t.integer "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "article_id"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "contacts", force: :cascade do |t|
     t.string "title"
     t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,7 +73,6 @@ ActiveRecord::Schema.define(version: 2021_04_09_082138) do
   end
 
   create_table "quizzes", force: :cascade do |t|
-    t.integer "result_id"
     t.string "question"
     t.string "choice1"
     t.string "choice2"
@@ -78,6 +100,12 @@ ActiveRecord::Schema.define(version: 2021_04_09_082138) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -91,6 +119,8 @@ ActiveRecord::Schema.define(version: 2021_04_09_082138) do
     t.string "choice_reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "mno_mvno"
+    t.string "image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

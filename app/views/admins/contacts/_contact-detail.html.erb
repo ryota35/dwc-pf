@@ -1,0 +1,10 @@
+<% if @contact.nil? %>
+<% else %>
+  <div class="border border-dark bg-light">
+    <h3 class="px-3 pt-3">タイトル</h3>
+    <h3 class="border-bottom px-3 pb-3"><%= @contact.title %></h3>
+
+  　<h5 class="px-3">問い合わせ内容</h5>
+  　<p class="px-3"><%= @contact.message %></p>
+  </div>
+<% end %>

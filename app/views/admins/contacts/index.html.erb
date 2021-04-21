@@ -1,1 +1,25 @@
-管理者側の問い合わせ一覧contact/index
+<div class="container">
+  <divc class="row d-flex justify-content-center">
+
+    <div class="col-md-8 mb-5">
+      <h1 class="my-5">問い合わせ一覧</h1>
+        <table class="table">
+          <tbody>
+            <% @contacts.each do |contact| %>
+              <tr>
+                <td><h4><%= link_to admins_contacts_path(contact_id: contact.id), remote: true do %><%= contact.title %><% end %></h4></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <p><%= paginate @contacts %></p>
+    </div>
+
+
+
+    <div class="contact-detail col-md-8">
+      <%= render "contact-detail", contact: @contact %>
+    </div>
+
+  </div>
+</div>
