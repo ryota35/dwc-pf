@@ -1,3 +1,12 @@
-<footer class="border-dark border-top d-flex align-items-center justify-content-center bg-dark">
-<p class="copyright mb-0 text-white">© 2021 ryota35</p>
+<footer class="border-dark border-top d-flex flex-column align-items-center justify-content-center bg-dark">
+<div class="container">
+  <div div="row">
+  <div class="text-center">
+    <%= link_to "このサイトについて", about_path, class:"text-white font-weight-bold mr-5 h4" %>
+    <%= link_to "お問い合わせ", new_contact_path, class:"text-white font-weight-bold ml-5 h4" %>
+  </div>
+
+  <p class="copyright mb-0 mt-5 text-white font-weight-bold text-center h5">© 2021 ryota35</p>
+  </div>
+</div>
 </footer>

@@ -28,7 +28,7 @@
       <p class="article-body mt-5 mx-4"><%= safe_join(@article.body.split("\n"),tag(:br)) %></p>
 
       <div class="text-right mt-5">
-        <% if current_user = @article.user %>
+        <% if current_user == @article.user %>
           <%= link_to "編集",  edit_article_path(@article), class:"btn btn-success px-4 mr-3" %>
           <%= link_to "削除", article_path(@article), method: :delete, data: { confirm: '本当に削除しますか？' }, class:"btn btn-danger px-4" %>
         <% end %>

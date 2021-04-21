@@ -73,7 +73,7 @@ Tag.create!([
     admin_id: 1,
     image: File.open("./app/assets/images/img/logo3.png"),
     title:
-    "#{n + 1}管理・よく耳にするSIMフリーとは？　SIMフリーススマホとは？　上手なSIMフリースマホの選び方のポイントと購入方法",
+    "#{n + 1}管理・よく耳にするSIMフリーとは？　SIMフリーススマホとは？",
     body:
     "#{n + 1}そもそもSIMフリーとは？ SIMフリーとSIMロックを知るには、まずSIMが何なのかを理解しましょう。SIMとは、利用者の識別情報や電話番号などが記載されたICカードで、スマホを購入した際、本体に装着するものです。
     スマホはSIMを装着することで、Wi-Fiがない場所でもインターネットに接続ができたり、電話をかけたりすることも可能になります。
@@ -154,7 +154,7 @@ end
     user_id: 3,
     # image: File.open("./app/assets/images/img/logo1.png"),
     title:
-    "#{n + 1}会員・今更聞けない「5G」とは？第5世代移動通信システムをわかりやすく簡単に説明",
+    "#{n + 1}会員・今更聞けない「5G」とは？第5世代移動通信システム",
     body:
     "#{n + 1}まずは、そもそも5Gというものが一体何なのか、言葉の意味や注目される理由などを紹介していきます。
 
@@ -227,6 +227,26 @@ end
   )
 
  Quiz.create!(
+    question: "LTEとは何の略？",
+    choice1: "latest table embedded",
+    choice2: "long term evolution",
+    choice3: "list task exists",
+    choice4: "latest turn experience",
+    answer: "2",
+    level: 0
+  )
+
+  Quiz.create!(
+    question: "appleが作るスマートフォンといえば？",
+    choice1: "Xperia",
+    choice2: "galaxy",
+    choice3: "AQUOS",
+    choice4: "iphone",
+    answer: "4",
+    level: 0
+  )
+
+ Quiz.create!(
     question: "利用中の料金プランの内容はおおむね把握している",
     choice1: "はい",
     choice2: "いいえ",
@@ -242,6 +262,64 @@ end
     level: 0
   )
 
+   Quiz.create!(
+    question: "iphoneの充電端子の規格として2021/4現在採用されている規格の名称は？",
+    choice1: "タイプC",
+    choice2: "thunderbolt",
+    choice3: "micro-USB",
+    choice4: "lightning",
+    answer: "4",
+    level: 0
+  )
+
+  Quiz.create!(
+    question: "1GB 1MB 1KB 1TB をデータ量の小さい並び替えだ場合、正しいのはどれ？",
+    choice1: "1TB 1GB 1MB 1KB",
+    choice2: "1MB 1KB 1GB 1TB",
+    choice3: "1GB 1KB 1TB 1MB",
+    choice4: "1KB 1MB 1GB 1TB",
+    answer: "4",
+    level: 0
+  )
+
+  Quiz.create!(
+    question: "5Gの特徴として挙げられる項目のうち間違っているのはどれか？",
+    choice1: "低遅延",
+    choice2: "長距離",
+    choice3: "大容量",
+    choice4: "他接続",
+    answer: "2",
+    level: 1
+  )
+
+  Quiz.create!(
+    question: "利用中のスマホのIMEIを画面に表示して確認できる",
+    choice1: "はい",
+    choice2: "いいえ",
+    answer: "1",
+    level: 1
+  )
+
+  Quiz.create!(
+    question: "スマホの充電器などで目にすることが多くなったGaNとは何の略？",
+    choice1: "窒素ガリウム",
+    choice2: "塩化マグネシウム",
+    choice3: "マンガンナトリウム",
+    choice4: "ガンマンナトリウム",
+    answer: "3",
+    level: 1
+  )
+
+  Quiz.create!(
+    question: "スマホの充電器などで目にすることが多くなったPDとは何の略？",
+    choice1: "perfect deliver",
+    choice2: "power direct",
+    choice3: "power delivery",
+    choice4: "peace devise",
+    answer: "3",
+    level: 1
+  )
+
  Quiz.create!(
     question: "市販のWi-FIルーターで見かける接続可能な周波数帯はどれ？",
     choice1: "3.6と6Ghz",
@@ -249,6 +327,24 @@ end
     choice3: "2.4と5Ghz",
     choice4: "3.7と8.3Ghz",
     answer: "3",
+    level: 1
+  )
+
+Quiz.create!(
+    question: "MVNOは何の略",
+    choice1: "mobile vertical nest on",
+    choice2: "media visited nothing organization",
+    choice3: "mobile virtual network operator",
+    choice4: "module view no office",
+    answer: "3",
+    level: 1
+  )
+
+  Quiz.create!(
+    question: "SIMフリーについて簡単に説明できる",
+    choice1: "はい",
+    choice2: "いいえ",
+    answer: "1",
     level: 1
   )
 
