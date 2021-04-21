@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   passwords: 'public/users/passwords'
   }
 
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'public/users/sessions#guest_sign_in'
+  end
+
   scope module: :public do
     resources :articles do
       resources :comments, only: [:create, :destroy]

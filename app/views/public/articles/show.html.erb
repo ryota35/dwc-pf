@@ -1,46 +1,55 @@
 
 <div class="container">
-  <div class="">
 
-      <%= attachment_image_tag @article, :image, :fill, 200, 100, format: 'jpeg', fallback: 'img/no_image.png', size: '200x100' %>
+  <div class="row d-flex flex-column align-items-center mt-5">
+    <%= render partial: 'layouts/flash' %>
+    <div class="col-md-7 p-0 bg-white">
 
-      <h2><%= @article.title%></h2>
+      <div class="text-center"><%= attachment_image_tag @article, :image, class:"img-fluid", fallback: 'img/no_image.png' %></div>
 
-      <div class="favorite_form">
-        <%= render "public/favorites/favorite", article: @article %>
+      <div class="d-flex mt-4 ml-3">
+        <h1 class="font-weight-bold flex-grow-1"><%= @article.title%></h1>
+        <span class="h4 text-nowrap">お気に入り</span>
+        <span class="favorite_form mt-3 mr-3">
+          <%= render "public/favorites/favorite", article: @article %>
+        </span>
       </div>
 
-      <% @article.tags.each do |tag| %>
-        <span class= 'badge badge-primary'><%= tag.name %></span>
-      <% end %>
+      <span class="badge badge-primary mt-2 ml-3"><%= @article.level%></span>
 
-      <p><%= @reading_time %></p>
+      <div class="ml-3">
+        <% @article.tags.each do |tag| %>
+          <span class= 'badge'><%= tag.name %></span>
+        <% end %>
+      </div>
 
-      <p><%= safe_join(@article.body.split("\n"),tag(:br)) %></p>
+      <p class="font-weight-bold mt-2 mr-5 h4 text-right"><%= @reading_time %></p>
 
-      <p><%= @article.level%></p>
+      <p class="article-body mt-5 mx-4"><%= safe_join(@article.body.split("\n"),tag(:br)) %></p>
 
-      <% if current_user = @article.user %>
-        <%= link_to "編集",  edit_article_path(@article), class:"btn btn-success" %>
-        <%= link_to "削除", article_path(@article), method: :delete, data: { confirm: '本当に削除しますか？' }, class:"btn btn-danger" %>
-      <% end %>
+      <div class="text-right mt-5">
+        <% if current_user = @article.user %>
+          <%= link_to "編集",  edit_article_path(@article), class:"btn btn-success px-4 mr-3" %>
+          <%= link_to "削除", article_path(@article), method: :delete, data: { confirm: '本当に削除しますか？' }, class:"btn btn-danger px-4" %>
+        <% end %>
+      </div>
+    </div>
 
-  </div>
 
-  <div>
+  <div class="col-md-7 p-0 mt-5 pb-4 bg-white">
 
-    <h2>コメント</h2>
+    <h2 class="font-weight-bold ml-3 mt-3">コメント</h2>
 
-    <div class="comment-index">
+    <div class="comment-index mt-3 mx-3">
       <%= render "public/comments/comment-index", comments: @comments, article: @article %>
     </div>
 
-    <div class="new-comment">
+    <div class="new-comment mt-3 ml-3 mr-5">
       <%= render "public/comments/new-comment", comment: @comment, article: @article %>
     </div>
 
   </div>
-
+ </div>
 </div>
 
 

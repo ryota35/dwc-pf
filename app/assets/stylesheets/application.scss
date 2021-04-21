@@ -40,17 +40,21 @@ body {
 }
 
 .main {
-  min-height: calc(100vh - 120px);
+  min-height: calc(100vh - 150px);
   // padding-top: 100px;
   margin-bottom: 20px;
 }
 
 .main-login {
-  min-height: calc(100vh - 120px);
+  min-height: calc(100vh - 150px);
 }
 
 footer{
-  height: 100px;
+  height: 130px;
+}
+
+.alert {
+  font-size: 2rem;
 }
 
 .error {
@@ -59,8 +63,11 @@ footer{
 }
 
 p {
+  word-wrap: break-word;
   overflow-wrap: break-word;
+  word-break: break-all;
 }
+
 
 .top-image {
   background-image: url("img/top-image2.jpg");
@@ -150,35 +157,30 @@ a:link, a:visited, a:hover, a:active {
   margin-bottom: 10px;
 }
 
-.contact-title-text {
-  width: 470px;
-  height: 25px;
+.article-body {
+  font-size: 1.4rem;
+  line-height: 2em;
 }
 
-.contact-title-message {
-  width: 470px;
-  height: 500px;
+.precautions>ul>li {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
 }
 
 .favorite_create_icon {
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .favorite_delete_icon {
-  font-size: 15px;
+  font-size: 18px;
   color: #f3e524;
+  text-shadow: 0 0 2px #000;
 }
 
 @media only screen and (max-width:600px) {
 
-.contact-title-text {
-  width: 350px;
-  height: 25px;
-}
-
-.contact-title-message {
-  width: 350px;
-  height: 300px;
+.precautions {
+  margin-top: 30px;
 }
 
 .top-image {

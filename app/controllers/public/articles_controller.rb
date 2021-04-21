@@ -45,7 +45,7 @@ class Public::ArticlesController < ApplicationController
     article = Article.new(article_params)
     article.user_id = current_user.id
     article.save
-    redirect_to article_path(article)
+    redirect_to article_path(article), flash: {success: "ご投稿ありがとうございます。"}
   end
 
   def show
