@@ -1,2 +1,11 @@
-<h1>Admins::Quizzes#edit</h1>
-<p>Find me in app/views/admins/quizzes/edit.html.erb</p>
+
+<div class="container pt-5">
+  <div class="row d-flex flex-column align-items-center pt-5">
+    <h1 class="pb-4 mb-4">クイズ編集</h1>
+    <%= form_with model: @quiz, url: admins_quiz_path(@quiz), local:true do |f| %>
+
+     <%= render "quiz-form", quiz: @quiz %>
+
+    <% end %>
+  </div>
+</div>

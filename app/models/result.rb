@@ -4,6 +4,8 @@ class Result < ApplicationRecord
   belongs_to :score
   belongs_to :quiz
 
+  validates :selection_result, presence: true
+
   def judge_answer
     quiz = Quiz.find(self.quiz_id)
     if selection_result == quiz.answer

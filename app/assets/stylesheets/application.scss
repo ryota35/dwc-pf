@@ -17,38 +17,190 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-body {
-  background-image: image-url("hoge.jpg");
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #f3f3f3;
+}
+
+.header {
+  background-color: #f3f3f3;
+  box-shadow: 3px 0px 10px;
+  // position: fixed;
+  width: 100%;
+  height: 70px;
+}
+
+.main {
+  min-height: calc(100vh - 120px);
+  // padding-top: 100px;
+  margin-bottom: 20px;
+}
+
+.main-login {
+  min-height: calc(100vh - 120px);
+}
+
+footer{
+  height: 100px;
+}
+
+.error {
+  list-style: none;
+  color: red;
+}
+
+p {
+  overflow-wrap: break-word;
+}
+
+.top-image {
+  background-image: url("img/top-image2.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 450px;
+  border-radius: 30px;
+}
+
+.top-group {
+  border-radius: 30px;
+  border: 5px solid gray;
+}
+
+.top-text {
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: 'Corben', cursive;
+}
+
+.top-sentence {
+  font-weight: bold;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.pagination>li {
+  border: none;     /*枠線をなくす*/
+  color: #696969;  /*文字の色を変える*/
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;  /*文字の色を変える*/
+  border-radius: 20px;
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 20px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  background: #93c9ff;
+  border-radius: 20px;    /*角を丸くする*/
+}
 
 .swiper-container {
   width: 100%;
   height: 100%;
+  padding: 10px;
 }
 
 .swiper-slide {
   text-align: center;
   font-size: 18px;
   background: #fff;
+  border: solid 1px black;
+}
 
-  /* Center slide text vertically */
-  /*display: -webkit-box;*/
-  /*display: -ms-flexbox;*/
-  /*display: -webkit-flex;*/
-  /*display: flex;*/
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
+.swiper-slide a:link, a:visited, a:hover, a:active {
+  color: black;
+  text-decoration: none;
+}
+
+.swiper-slide p {
+  font-size: 15px;
+}
+
+a:link, a:visited, a:hover, a:active {
+  color: black;
+  text-decoration: none;
+}
+
+.tag_link:hover {
+  color: red;
+}
+
+.contact-title {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.contact-title-text {
+  width: 470px;
+  height: 25px;
+}
+
+.contact-title-message {
+  width: 470px;
+  height: 500px;
+}
+
+.favorite_create_icon {
+  font-size: 15px;
+}
+
+.favorite_delete_icon {
+  font-size: 15px;
+  color: #f3e524;
+}
+
+@media only screen and (max-width:600px) {
+
+.contact-title-text {
+  width: 350px;
+  height: 25px;
+}
+
+.contact-title-message {
+  width: 350px;
+  height: 300px;
+}
+
+.top-image {
+  background-image: url("img/top-image2.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 200px;
+  border-radius: 30px;
+}
+
+.top-group {
+  border-radius: 30px;
+  height: 100px;
+  border: 5px solid gray;
+}
+
+.top-text {
+  font-size: 1rem;
+}
+
+.top-sentence {
+  display: none;
+}
+
 }

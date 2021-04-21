@@ -14,16 +14,19 @@ Rails.application.routes.draw do
   }
 
   scope module: :public do
+    resources :articles do
+      resources :comments, only: [:create, :destroy]
+    end
     resources :users, only: [:show, :edit, :update]
     resources :quizzes, only: [:new, :create, :show]
-    resources :articles
     resources :contacts, only: [:new, :create, :show]
     resources :searches, only: [:index]
+    resources :favorites, only: [:create, :destroy]
   end
 
   namespace :admins do
-    resources :articles, only: [:index, :show, :new, :create, :edit, :update]
-    resources :quizzes, only: [:index, :create, :edit, :update]
+    resources :articles
+    resources :quizzes, only: [:index, :create, :edit, :update, :destroy]
     resources :contacts, only: [:index, :show]
   end
 

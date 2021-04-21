@@ -1,12 +1,19 @@
+<div class="container">
+  <div class="row d-flex flex-column">
 
-"<%= @search %>" の検索結果
+    <div class="h2 py-5">
+    "<%= @search %>" の検索結果
+    </div>
 
-<% if @articles.blank? %>
-  <p>検索結果がありません</p>
-<% else %>
-  <% @articles.each do |article| %>
-      <p><%= article.title %></p>
-      <p><%= article.body %></p>
-      <p><%= article.level %></p>
-  <% end %>
-<% end %>
+    <% if @search == "" %>
+      <p>検索結果がありません</p>
+    <% else %>
+      <% @articles.each do |article| %>
+        <div class="row col-md-8 d-flex border border-dark">
+          <p class="my-2"><%= article.title %></p>
+          <p class="ml-auto my-auto badge"><%= article.level %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

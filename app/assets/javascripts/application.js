@@ -15,8 +15,54 @@
 //= require popper
 //= require bootstrap-sprockets
 
+
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 
+
+
+
+// var title = "発火テストアラート";
+// alert(title);
+
+// $(document).ready(function () {
+//   $('#test').on('click', function() {
+//     alert("クリックされました");
+//   });
+// });
+
+
+$(document).ready(function () {
+var swiper = new Swiper('.swiper-container', {
+    spaceBetween: 30,
+    slidesPerView: 1,
+    breakpoints: {
+    768: {
+      slidesPerView: 2,
+    },
+    980: {
+      slidesPerView: 3,
+    },
+    1200: {
+      slidesPerView: 4,
+    }
+  },
+
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+
+    },
+  });
+});
+
+
+
+$(function(){
+  $('.bsl').hover(function(){
+    $(this).text('B(est) S(martphone) L(ife)');
+  },  function(){
+    $(this).text('B S L');
+  });
+});

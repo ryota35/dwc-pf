@@ -1,2 +1,33 @@
-<h1>Public::Articles#edit</h1>
-<p>Find me in app/views/public/articles/edit.html.erb</p>
+<div>
+<div class="container text-center">
+
+<%= form_with model: @article, local: true do |f| %>
+
+<div class="form-group">
+<%= f.label :タイトル %><br>
+<%= f.text_field :title, size:50 %>
+</div>
+
+<div class="form-group">
+<%= f.label :本文 %><br>
+<%= f.text_area :body, row:5, size:50 %>
+</div>
+
+<div class="form-group">
+<%= f.label :レベル %><br>
+<%= f.select :level, Article.levels.keys, {prompt: "選択して下さい"} %>
+</div>
+
+<%= f.submit "完了", class:"btn btn-success" %>
+
+<% end %>
+
+<h1>ご投稿の際の注意事項</h1>
+<ul>
+    <li>公序良俗に反しない内容であること</li>
+    <li>個人を誹謗・中傷する内容でないこと</li>
+    <li>個人情報は投稿しないこと</li>
+</ul>
+
+</div>
+</div>

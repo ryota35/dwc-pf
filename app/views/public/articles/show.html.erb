@@ -1,10 +1,47 @@
 
-<h1>記事のshowページです</h1>
+<div class="container">
+  <div class="">
 
-<p><%= @article.title%></p>
+      <%= attachment_image_tag @article, :image, :fill, 200, 100, format: 'jpeg', fallback: 'img/no_image.png', size: '200x100' %>
 
-<p><%= safe_join(@article.body.split("\n"),tag(:br)) %></p>
+      <h2><%= @article.title%></h2>
 
-<p><%= @article.level%></p>
+      <div class="favorite_form">
+        <%= render "public/favorites/favorite", article: @article %>
+      </div>
 
-<p><%= @reading_time %></p>
+      <% @article.tags.each do |tag| %>
+        <span class= 'badge badge-primary'><%= tag.name %></span>
+      <% end %>
+
+      <p><%= @reading_time %></p>
+
+      <p><%= safe_join(@article.body.split("\n"),tag(:br)) %></p>
+
+      <p><%= @article.level%></p>
+
+      <% if current_user = @article.user %>
+        <%= link_to "編集",  edit_article_path(@article), class:"btn btn-success" %>
+        <%= link_to "削除", article_path(@article), method: :delete, data: { confirm: '本当に削除しますか？' }, class:"btn btn-danger" %>
+      <% end %>
+
+  </div>
+
+  <div>
+
+    <h2>コメント</h2>
+
+    <div class="comment-index">
+      <%= render "public/comments/comment-index", comments: @comments, article: @article %>
+    </div>
+
+    <div class="new-comment">
+      <%= render "public/comments/new-comment", comment: @comment, article: @article %>
+    </div>
+
+  </div>
+
+</div>
+
+
+

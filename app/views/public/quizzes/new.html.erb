@@ -1,18 +1,67 @@
-<%= form_with model: @score, url: quizzes_path, local: true do |f| %>
+<div class="container pt-5">
 
-  <% @quizzes.each do |quiz| %>
+  <h1 class="text-center"><span class="bg-light">腕試し! ３０問テスト!!</span></h1>
 
-    <%= f.fields_for :results do |i| %>
-      <p><%= quiz.question %></p>
-      <label><%= i.radio_button :selection_result, 1 %><%= quiz.choice1 %></label>
-      <label><%= i.radio_button :selection_result, 2 %><%= quiz.choice2 %></label>
-      <label><%= i.radio_button :selection_result, 3 %><%= quiz.choice3 %></label>
-      <label><%= i.radio_button :selection_result, 4 %><%= quiz.choice4 %></label>
-      <%= i.hidden_field :quiz_id, value: quiz.id %>
+  <div class="row offset-2 col-md-8 justify-content-center mt-5 bg-light">
 
+    <%= form_with model: @score, url: quizzes_path, local: true do |f| %>
+
+      <% if @selection_results.nil? %>
+        <% @quizzes.each do |quiz| %>
+          <% if quiz.choice3.nil? %>
+            <%= f.fields_for :results do |i| %>
+              <h2 class="pt-5"><%= quiz.question %></h2>
+                <div class="d-flex pt-4">
+                <label class="d-flex align-items-center mr-5"><%= i.radio_button :selection_result, 1, class:"mt-0" %><p class="mb-0"><%= quiz.choice1 %></p></label>
+                <label class="d-flex align-items-center mr-5"><%= i.radio_button :selection_result, 2, class:"mt-0" %><p class="mb-0"><%= quiz.choice2 %></p></label>
+                </div>
+                <%= i.hidden_field :quiz_id, value: quiz.id %>
+            <% end %>
+          <% else %>
+            <%= f.fields_for :results do |i| %>
+              <h2 class="pt-5"><%= quiz.question %></h2>
+                <div class="d-flex pt-4">
+                <label class="d-flex align-items-center mr-5"><%= i.radio_button :selection_result, 1, class:"mt-0" %><p class="mb-0"><%= quiz.choice1 %></p></label>
+                <label class="d-flex align-items-center mr-5"><%= i.radio_button :selection_result, 2, class:"mt-0" %><p class="mb-0"><%= quiz.choice2 %></p></label>
+                <label class="d-flex align-items-center mr-5"><%= i.radio_button :selection_result, 3, class:"mt-0" %><p class="mb-0"><%= quiz.choice3 %></p></label>
+                <label class="d-flex align-items-center mr-5"><%= i.radio_button :selection_result, 4, class:"mt-0" %><p class="mb-0"><%= quiz.choice4 %></p></label>
+                </div>
+                <%= i.hidden_field :quiz_id, value: quiz.id %>
+            <% end %>
+          <% end %>
+        <% end %>
+
+      <% else %>
+        <p class="pt-5 font-weight-bold text-danger">未回答の問題があります</p>
+        <% @quizzes.each do |quiz| %>
+          <% if quiz.choice3.nil? %>
+            <%= f.fields_for :results do |i| %>
+              <h2 class="pt-3"><%= quiz.question %></h2>
+                <div class="d-flex pt-4">
+                <label class="d-flex align-items-center mr-5"><%= i.radio_button :selection_result, 1, checked: @selection_results[quiz.id.to_s] == '1', class:"mt-0" %><p class="mb-0"><%= quiz.choice1 %></p></label>
+                <label class="d-flex align-items-center mr-5"><%= i.radio_button :selection_result, 2, checked: @selection_results[quiz.id.to_s] == '2', class:"mt-0" %><p class="mb-0"><%= quiz.choice2 %></p></label>
+                </div>
+                <%= i.hidden_field :quiz_id, value: quiz.id %>
+            <% end %>
+          <% else %>
+            <%= f.fields_for :results do |i| %>
+              <h2 class="pt-3"><%= quiz.question %></h2>
+                <div class="d-flex pt-4">
+                <label class="d-flex align-items-center mr-5"><%= i.radio_button :selection_result, 1, checked: @selection_results[quiz.id.to_s] == '1', class:"mt-0" %><p class="mb-0"><%= quiz.choice1 %></p></label>
+                <label class="d-flex align-items-center mr-5"><%= i.radio_button :selection_result, 2, checked: @selection_results[quiz.id.to_s] == '2', class:"mt-0" %><p class="mb-0"><%= quiz.choice2 %></p></label>
+                <label class="d-flex align-items-center mr-5"><%= i.radio_button :selection_result, 3, checked: @selection_results[quiz.id.to_s] == '3', class:"mt-0" %><p class="mb-0"><%= quiz.choice3 %></p></label>
+                <label class="d-flex align-items-center mr-5"><%= i.radio_button :selection_result, 4, checked: @selection_results[quiz.id.to_s] == '4', class:"mt-0" %><p class="mb-0"><%= quiz.choice4 %></p></label>
+                </div>
+                <%= i.hidden_field :quiz_id, value: quiz.id %>
+            <% end %>
+          <% end %>
+        <% end %>
+
+      <% end %>
+
+    <p class="text-center my-5"><%= f.submit "採点する", class:"score_calc btn btn-primary px-5 py-3", remote: true %></p>
     <% end %>
 
-  <% end %>
+  </div>
+</div>
 
-<p><%= f.submit "回答する" %></p>
-<% end %>

@@ -1,0 +1,39 @@
+<%= form_with model: quiz, local:true do |f| %>
+  <%= render "layouts/errors", obj: quiz %>
+
+  <table class="table table-nobordered">
+    <tbody>
+      <tr>
+        <td><%= f.label :question %></td>
+        <td><%= f.text_area :question, autofocus: true, rows:2 %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :choice1 %></td>
+        <td><%= f.text_field :choice1 %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :choice2 %></td>
+        <td><%= f.text_field :choice2 %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :choice3 %></td>
+        <td><%= f.text_field :choice3 %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :choice4 %></td>
+        <td><%= f.text_field :choice4 %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :answer %></td>
+        <td><%= f.number_field :answer, min: 1, max: 4 %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :level %></td>
+        <td><%= f.select :level, Quiz.levels.keys, {include_blank: true} %></td>
+      </tr>
+      <tr>
+        <td colspan="2"><%= f.submit "完了", class:"btn btn-success" %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
