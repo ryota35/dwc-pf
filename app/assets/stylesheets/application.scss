@@ -34,7 +34,6 @@ body {
 .header {
   background-color: #f3f3f3;
   box-shadow: 3px 0px 10px;
-  // position: fixed;
   width: 100%;
   height: 70px;
 }
@@ -45,7 +44,6 @@ body {
 
 .main {
   min-height: calc(100vh - 150px);
-  // padding-top: 100px;
   margin-bottom: 20px;
 }
 
@@ -101,28 +99,26 @@ p {
 }
 
 .pagination>li {
-  border: none;     /*枠線をなくす*/
-  color: #696969;  /*文字の色を変える*/
+  border: none;
+  color: #696969;
   border-radius: 20px;
   margin-right: 10px;
 }
 
 .pagination>li>a {
-  border: none;     /*枠線をなくす*/
-  color: #696969;  /*文字の色を変える*/
+  border: none;
+  color: #696969;
   border-radius: 20px;
 }
 
-/* 表示しているページ番号のデザイン */
 .pagination>.active>a {
-  background: #93c9ff;     /*背景の色を変える*/
-  border-radius: 20px;     /*角を丸くする*/
+  background: #93c9ff;
+  border-radius: 20px;
 }
 
-/*ホバー時のデザイン*/
 .pagination>li>a:hover {
   background: #93c9ff;
-  border-radius: 20px;    /*角を丸くする*/
+  border-radius: 20px;
 }
 
 .swiper-container {
@@ -181,6 +177,53 @@ a:link, a:visited, a:hover, a:active {
   text-shadow: 0 0 2px #000;
 }
 
+.fadein {
+    opacity : 0;
+    transform : translate(0, 50px);
+    transition : all 300ms;
+}
+.fadein.scrollin {
+    opacity : 1;
+    transform : translate(0, 0);
+}
+
+.about-content {
+  margin-top: 200px;
+}
+
+.about-image1 {
+  background-image: image-url("img/top-image.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 250px;
+}
+
+.about-text {
+  position: relative;
+}
+
+.about-text-title {
+  position: absolute;
+  top: -20px;
+  left: 80px;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.about-text-sentence {
+  list-style: none;
+  position: absolute;
+  top: 50px;
+  left: 80px;
+}
+
+.about-text-sentence>li {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-top: 10px;
+}
+
 @media only screen and (max-width:600px) {
 
 .precautions {
@@ -188,7 +231,6 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .top-image {
-  background-image: url("img/top-image2.jpg");
   background-size: cover;
   background-position: center center;
   height: 200px;
@@ -207,6 +249,30 @@ a:link, a:visited, a:hover, a:active {
 
 .top-sentence {
   display: none;
+}
+
+.about-image1 {
+  height: 150px;
+}
+
+.about-text {
+  position: static;
+}
+
+.about-text-title {
+  position: static;
+  font-size: 2rem;
+}
+
+.about-text-sentence{
+  position: static;
+}
+
+.about-text-sentence>li {
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  margin-top: 10px;
 }
 
 }
