@@ -177,6 +177,13 @@ a:link, a:visited, a:hover, a:active {
   text-shadow: 0 0 2px #000;
 }
 
+.about-prologue>li {
+  list-style: none;
+  font-size: 1.5rem;
+  margin-top: 3px;
+  letter-spacing: 2px;
+}
+
 .fadein {
     opacity : 0;
     transform : translate(0, 50px);
@@ -188,7 +195,7 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .about-content {
-  margin-top: 200px;
+  margin-top: 80px;
 }
 
 .about-image1 {
@@ -223,6 +230,7 @@ a:link, a:visited, a:hover, a:active {
   letter-spacing: 3px;
   margin-top: 10px;
 }
+
 
 @media only screen and (max-width:600px) {
 

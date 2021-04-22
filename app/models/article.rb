@@ -16,7 +16,7 @@ class Article < ApplicationRecord
   validates :level, presence: true
 
   def reading_time
-    reading_time = body.length / 10
+    reading_time = body.length / 300
     if reading_time < 1
       p "読了目安時間 1分以内"
     else
