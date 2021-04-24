@@ -206,17 +206,33 @@ end
     )
 end
 
-20.times do |n|
-  Quiz.create!(
-    question: "サンプル問題です#{n + 1}",
-    choice1: "サンプル選択肢#{n + 1}_1",
-    choice2: "サンプル選択肢#{n + 1}_2",
-    # choice3: "サンプル選択肢#{n + 1}_3",
-    # choice4: "サンプル選択肢#{n + 1}_4",
+Quiz.create!(
+    question: "iphoneのOSといえば？",
+    choice1: "iOS",
+    choice2: "apple OS",
+    choice3: "aOS",
+    choice4: "android",
     answer: "1",
     level: 0
   )
-end
+
+  Quiz.create!(
+    question: "モバイルバッテリーの容量を示す際に容用いられる単位は？",
+    choice1: "meh",
+    choice2: "mAh",
+    choice3: "Vah",
+    choice4: "mh",
+    answer: "2",
+    level: 0
+  )
+
+  Quiz.create!(
+    question: "一般的なWi-FiやBluetoothの接続設定はできる",
+    choice1: "はい",
+    choice2: "いいえ",
+    answer: "1",
+    level: 0
+  )
 
  Quiz.create!(
     question: "利用中のスマホの機種が分かる",
@@ -228,7 +244,7 @@ end
 
  Quiz.create!(
     question: "LTEとは何の略？",
-    choice1: "latest table embedded",
+    choice1: "latest task embedded",
     choice2: "long term evolution",
     choice3: "list task exists",
     choice4: "latest turn experience",
@@ -293,6 +309,16 @@ end
   )
 
   Quiz.create!(
+    question: "iphoneなどのワイヤレス充電に関する国際標準規格は？",
+    choice1: "Ti",
+    choice2: "Qi",
+    choice3: "Wi",
+    choice4: "Xi",
+    answer: "2",
+    level: 1
+  )
+
+  Quiz.create!(
     question: "利用中のスマホのIMEIを画面に表示して確認できる",
     choice1: "はい",
     choice2: "いいえ",
@@ -306,7 +332,7 @@ end
     choice2: "塩化マグネシウム",
     choice3: "マンガンナトリウム",
     choice4: "ガンマンナトリウム",
-    answer: "3",
+    answer: "1",
     level: 1
   )
 
@@ -341,7 +367,31 @@ Quiz.create!(
   )
 
   Quiz.create!(
+    question: "サブブランド、格安SIMのブランド名を5個以上言える",
+    choice1: "はい",
+    choice2: "いいえ",
+    answer: "1",
+    level: 1
+  )
+
+  Quiz.create!(
     question: "SIMフリーについて簡単に説明できる",
+    choice1: "はい",
+    choice2: "いいえ",
+    answer: "1",
+    level: 1
+  )
+
+  Quiz.create!(
+    question: "MNPについて説明できる",
+    choice1: "はい",
+    choice2: "いいえ",
+    answer: "1",
+    level: 1
+  )
+
+   Quiz.create!(
+    question: "大手キャリアの２年契約について説明できる",
     choice1: "はい",
     choice2: "いいえ",
     answer: "1",
@@ -364,17 +414,35 @@ Quiz.create!(
     level: 2
   )
 
-20.times do |n|
   Quiz.create!(
-    question: "サンプル問題です#{n + 21}",
-    choice1: "サンプル選択肢#{n + 21}_1",
-    choice2: "サンプル選択肢#{n + 21}_2",
-    choice3: "サンプル選択肢#{n + 21}_3",
-    choice4: "サンプル選択肢#{n + 21}_4",
-    answer: "3",
-    level: 1
+    question: "Iotとは何の略？",
+    choice1: "Internet of things",
+    choice2: "International of things",
+    choice3: "Identifer on things",
+    choice4: "Icon on things",
+    answer: "1",
+    level: 2
   )
-end
+
+  Quiz.create!(
+    question: "大手キャリアのサービス「+メッセージ」で採用されている規格は？",
+    choice1: "SMS",
+    choice2: "HRD",
+    choice3: "TST",
+    choice4: "RCS",
+    answer: "4",
+    level: 2
+  )
+
+  Quiz.create!(
+    question: "",
+    choice1: "SMS",
+    choice2: "HRD",
+    choice3: "TST",
+    choice4: "RCS",
+    answer: "4",
+    level: 2
+  )
 
 20.times do |n|
   Quiz.create!(

@@ -8,7 +8,6 @@ class Public::QuizzesController < ApplicationController
   end
 
   def create
-
     score = Score.new(score_params)
     score.user_id = current_user.id
 
@@ -25,12 +24,9 @@ class Public::QuizzesController < ApplicationController
       @quizzes = Quiz.where(id: quiz_ids)
       render "new"
     end
-
-
   end
 
   def show
-
     @score = Score.find(params[:id])
     @results = @score.results
   end

@@ -24,10 +24,13 @@
             <td>
              <p class="h4"><%= link_to article.title, article_path(article) %></p>
              <div class="text-right">
-               <span class="badge badge-primary"><%= article.level %></span>
-               <% article.tags.each do |tag| %>
-                 <span class="badge"><%= tag.name %></span>
-               <% end %>
+                <span class="badge badge-primary"><%= article.level %></span>
+                <% article.tags.each do |tag| %>
+                  <span class="badge"><%= tag.name %></span>
+                <% end %>
+                <h6 class="article-show_date">
+                  <i class="fa fa-clock "></i>&nbsp;&nbsp;<%= article.created_at.strftime('%Y/%m/%d') %>
+                </h6>
              </div>
             </td>
           </tr>

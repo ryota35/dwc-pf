@@ -1,46 +1,73 @@
-<div class="container">
+<div class="container pt-5">
   <div class="row pt-5">
 
-    <div class="col-md-5">
+    <div class="col-md-4">
       <h2>マイプロフィール</h2>
-      <table>
+      <table class="table">
         <tbody>
           <tr>
-            <td colspan="2"><%= attachment_image_tag @user, :image, :fill, 130, 150, format: "jpeg" %></td>
+            <td colspan="2" class="text-center"><%= attachment_image_tag @user, :image, :fill, 320, 180, format: "jpeg", fallback: 'img/no_image.png', size: '320x180' %></td>
           </tr>
           <tr>
-            <td>お名前</td>
+            <td class="">お名前</td>
             <td><%= @user.name %></td>
           </tr>
           <tr>
             <td>スマホ</td>
-            <td><%= @user.smart_phone %></td>
+            <td>
+              <% if @user.smart_phone.nil? %>
+                <p>未登録</p>
+              <% else %>
+                <%= @user.smart_phone %>
+              <% end %>
+            </td>
           </tr>
           <tr>
             <td>キャリア</td>
-            <td><%= @user.mno_mvno %></td>
+            <td>
+              <% if @user.mno_mvno.nil? %>
+                <p>未登録</p>
+              <% else %>
+                <%= @user.mno_mvno %>
+              <% end %>
+            </td>
           </tr>
           <tr>
             <td>特徴</td>
-            <td><%= @user.background %></td>
+            <td>
+              <% if @user.background.nil? %>
+                <p>未登録</p>
+              <% else %>
+                <%= @user.background %>
+              <% end %>
+            </td>
           </tr>
           <tr>
             <td>最高得点</td>
-            <td><%= @max_score %>点</td>
+            <td>
+              <% if @max_score.nil? %>
+                <p>未登録</p>
+              <% else %>
+                <%= @max_score %>点
+              <% end %>
+            </td>
           </tr>
           <tr>
             <td>ランク</td>
-            <td><%= @user_level %></td>
+            <td>
+              <% if @user_level.nil? %>
+                <p>未登録</p>
+              <% else %>
+                <%= @user_level %>
+              <% end %>
+            </td>
           </tr>
         </tbody>
       </table>
 
       <h2>アイテム's</h2>
-      <table>
+      <table class="table">
         <thead>
-          <tr>
-            <th colspan="2"><%= attachment_image_tag @user, :image, :fill, 250, 150, format: "jpeg" %></th>
-          </tr>
           <tr>
             <th>アイテム名</th>
             <th>メーカー</th>

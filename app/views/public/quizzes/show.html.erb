@@ -1,8 +1,8 @@
 <div class="container pt-5">
-  <h1 class="text-center"><span class="bg-light">結果発表</span></h1>
-  <h1 class="text-center"><span class="bg-light">あなたの得点は<%= @score.score %>点でした！</span></h1>
+  <h1 class="text-center"><span class="bg-white">結果発表</span></h1>
+  <h1 class="text-center"><span class="bg-white">あなたの得点は<%= @score.score %>点でした！</span></h1>
 
-  <div class="row offset-2 col-md-8 justify-content-center bg-light mt-5">
+  <div class="row offset-2 col-md-8 justify-content-center bg-white mt-5">
     <div class="d-flex flex-column">
       <% @results.each do |result| %>
         <h2 class="pt-5"><%= result.quiz.question %></h2>

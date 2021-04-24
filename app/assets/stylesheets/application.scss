@@ -29,6 +29,7 @@ html {
 
 body {
   background-color: #f3f3f3;
+  font-family: "MS Pゴシック";
 }
 
 .header {
@@ -70,6 +71,14 @@ p {
   word-break: break-all;
 }
 
+.question-block {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.question-p {
+  white-space: nowrap;
+}
 
 .top-image {
   background-image: image-url("img/top-image2.jpg");
@@ -85,13 +94,17 @@ p {
 }
 
 .top-text {
-  font-size: 3rem;
-  font-weight: bold;
+  font-size: 3.5rem;
+  // font-weight: bold;
   font-family: 'Corben', cursive;
+  letter-spacing: 10px;
+  text-shadow: #FC0 1px 0 10px;
 }
 
 .top-sentence {
+  font-size: 1.5rem;
   font-weight: bold;
+  font-family: 'Corben', cursive;
 }
 
 .pagination {
@@ -199,7 +212,28 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .about-image1 {
-  background-image: image-url("img/top-image.jpg");
+  background-image: image-url("img2/about8.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 250px;
+}
+
+.about-image2 {
+  background-image: image-url("img2/about2.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 250px;
+}
+
+.about-image3 {
+  background-image: image-url("img2/about9.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 250px;
+}
+
+.about-image4 {
+  background-image: image-url("img2/about3.jpg");
   background-size: cover;
   background-position: center center;
   height: 250px;
@@ -230,6 +264,12 @@ a:link, a:visited, a:hover, a:active {
   letter-spacing: 3px;
   margin-top: 10px;
 }
+
+.family-test {
+  letter-spacing: 2px;
+  font-family: YuGothic,'Yu Gothic';
+}
+
 
 
 @media only screen and (max-width:600px) {
