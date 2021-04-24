@@ -435,26 +435,58 @@ Quiz.create!(
   )
 
   Quiz.create!(
-    question: "",
-    choice1: "SMS",
-    choice2: "HRD",
-    choice3: "TST",
-    choice4: "RCS",
-    answer: "4",
+    question: "近年注目を集める折り畳みスマホ、ギャラクシーから発売された折り畳みスマホは？",
+    choice1: "Galaxy Page",
+    choice2: "Galaxy Fold",
+    choice3: "Galaxy X",
+    choice4: "Galaxy Pair",
+    answer: "2",
     level: 2
   )
 
-20.times do |n|
   Quiz.create!(
-    question: "サンプル問題です#{n + 41}",
-    choice1: "サンプル選択肢#{n + 41}_1",
-    choice2: "サンプル選択肢#{n + 41}_2",
-    choice3: "サンプル選択肢#{n + 41}_3",
-    choice4: "サンプル選択肢#{n + 41}_4",
-    answer: "3",
+    question: "2020年に発売されたiphoneに充電器はついてくる、〇か✕か",
+    choice1: "〇",
+    choice2: "✕",
+    answer: "2",
     level: 2
   )
-end
+
+  Quiz.create!(
+    question: "NFCは何の略",
+    choice1: "Nest Field Common",
+    choice2: "Near Field Communication",
+    choice3: "New Future Center",
+    choice4: "Nest Fick Col",
+    answer: "2",
+    level: 2
+  )
+
+  Quiz.create!(
+    question: "一般的にWi-Fiは2.4Ghzより5Ghzのほうが障害物に強い、〇か✕か",
+    choice1: "〇",
+    choice2: "✕",
+    answer: "2",
+    level: 2
+  )
+
+  Quiz.create!(
+    question: "iphoneでワイヤレス充電が出来るようになったのはiphone7からである、〇か✕か",
+    choice1: "〇",
+    choice2: "✕",
+    answer: "2",
+    level: 2
+  )
+
+  Quiz.create!(
+    question: "SIMは何の略？",
+    choice1: "Subscriber Identity Module",
+    choice2: "Super Identity model",
+    choice3: "Send Internet Module",
+    choice4: "Success In Module",
+    answer: "1",
+    level: 2
+  )
 
 5.times do |n|
   Contact.create!(

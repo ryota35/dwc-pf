@@ -2,21 +2,26 @@
   <div class="row pt-5">
 
     <div class="col-md-4">
-      <h2>マイプロフィール</h2>
-      <table class="table">
+
+      <h2 class="mb-5"><span class="px-5 rounded-pill bg-success">マイプロフィール
+        <% if @user == current_user %>
+        <%= link_to edit_user_path(@user), class:"ml-auto" do %>
+          <i class="fas fa-user-edit"></i>
+        <% end %>
+        <% end %></span>
+      </h2>
+        <%= attachment_image_tag @user, :image, :fill, 150, 150, format: "jpeg", fallback: 'img/no_image.png', size: '150x150' %>
+      <table class="table profile bg-white">
         <tbody>
           <tr>
-            <td colspan="2" class="text-center"><%= attachment_image_tag @user, :image, :fill, 320, 180, format: "jpeg", fallback: 'img/no_image.png', size: '320x180' %></td>
-          </tr>
-          <tr>
-            <td class="">お名前</td>
-            <td><%= @user.name %></td>
+            <td class="w-25">お名前</td>
+            <td class="w-75"><%= @user.name %></td>
           </tr>
           <tr>
             <td>スマホ</td>
             <td>
               <% if @user.smart_phone.nil? %>
-                <p>未登録</p>
+                未登録
               <% else %>
                 <%= @user.smart_phone %>
               <% end %>
@@ -26,7 +31,7 @@
             <td>キャリア</td>
             <td>
               <% if @user.mno_mvno.nil? %>
-                <p>未登録</p>
+                未登録
               <% else %>
                 <%= @user.mno_mvno %>
               <% end %>
@@ -36,7 +41,7 @@
             <td>特徴</td>
             <td>
               <% if @user.background.nil? %>
-                <p>未登録</p>
+                未登録
               <% else %>
                 <%= @user.background %>
               <% end %>
@@ -46,7 +51,7 @@
             <td>最高得点</td>
             <td>
               <% if @max_score.nil? %>
-                <p>未登録</p>
+                未登録
               <% else %>
                 <%= @max_score %>点
               <% end %>
@@ -56,7 +61,7 @@
             <td>ランク</td>
             <td>
               <% if @user_level.nil? %>
-                <p>未登録</p>
+                未登録
               <% else %>
                 <%= @user_level %>
               <% end %>
@@ -65,7 +70,7 @@
         </tbody>
       </table>
 
-      <h2>アイテム's</h2>
+      <h2 class="my-5"><span class="px-5 rounded-pill bg-success">アイテム's</span></h2>
       <table class="table">
         <thead>
           <tr>
@@ -85,10 +90,14 @@
 
     </div>
 
-    <div class="col-md-7">
+    <div class="offset-1 col-md-7">
 
-      <h2>レベル別:おすすめ記事</h2>
-      <table class="table border">
+      <h2><span class="px-5 rounded-pill bg-warning">おすすめ</span></h2>
+      <div class="rounded mt-4 bg-white">
+        <% if @articles.blank? %>
+          <h3 class="p-5 mt-4"><%= link_to "クイズ", new_quiz_path, class:"font-weight-bold" %>を受けて頂くと表示されます</h3>
+        <% else %>
+        <table class="table border">
         <tbody>
           <% @articles.each do |article| %>
           <tr>
@@ -96,9 +105,11 @@
           </tr>
           <% end %>
         </tbody>
-      </table>
+        </table>
+        <% end %>
+      </div>
 
-      <h2>投稿した記事</h2>
+      <h2 class="mt-5"><span class="px-5 rounded-pill bg-warning">投稿した記事</span></h2>
       <table class="table border">
         <tbody>
           <% @user_articles.each do |article| %>
@@ -114,7 +125,7 @@
         </tbody>
       </table>
 
-      <h2>お気に入り記事</h2>
+     <h2 class="mt-5"><span class="px-5 rounded-pill bg-warning">お気に入り</span></h2>
       <table class="table border">
         <tbody>
           <% @user_favorite_articles.each do |article| %>

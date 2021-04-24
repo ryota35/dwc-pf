@@ -39,8 +39,21 @@ body {
   height: 70px;
 }
 
+.logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: 'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
+  text-shadow: gray 1px 1px 3px;
+}
+
 .nav-bg {
   background-color: #f3f3f3;
+}
+
+.navbar-nav>li>a {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000000;
 }
 
 .main {
@@ -163,6 +176,19 @@ a:link, a:visited, a:hover, a:active {
 
 .tag_link:hover {
   color: red;
+}
+
+.profile {
+  border-collapse: collapse;
+}
+
+table.profile tbody {
+  border: 1px solid #000066;
+}
+
+table.profile td {
+  border: 1px solid #000066;
+  background:#ffffff;
 }
 
 .contact-title {
