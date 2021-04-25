@@ -303,7 +303,7 @@ Quiz.create!(
     choice1: "低遅延",
     choice2: "長距離",
     choice3: "大容量",
-    choice4: "他接続",
+    choice4: "多接続",
     answer: "2",
     level: 1
   )

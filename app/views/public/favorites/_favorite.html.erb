@@ -1,10 +1,16 @@
 <% if current_user.nil? %>
 <% elsif current_user.favorite?(article) %>
-  <%= link_to favorite_path(article), method: :delete, remote: true do %>
-  <i class="fas fa-star favorite_delete_icon"></i>
-  <% end %>
+  <div class="d-flex">
+    <span class="h4 text-nowrap">お気に入り</span>
+    <%= link_to favorite_path(article), method: :delete, remote: true do %>
+      <i class="fas fa-star favorite_delete_icon"></i>
+    <% end %>
+  </div>
 <% else %>
-  <%= link_to favorites_path(id: article), method: :post, remote: true do %>
-  <i class="far fa-star favorite_create_icon"></i>
-  <% end %>
+  <div class="d-flex">
+    <span class="h4 text-nowrap">お気に入り</span>
+    <%= link_to favorites_path(id: article), method: :post, remote: true do %>
+      <i class="far fa-star favorite_create_icon"></i>
+    <% end %>
+  </div>
 <% end %>

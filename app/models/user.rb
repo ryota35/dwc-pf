@@ -12,6 +12,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :items
 
   attachment :image
+  attachment :itemimage
 
   validates :name, presence: true
 

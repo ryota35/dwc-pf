@@ -1,55 +1,78 @@
 <div class="container">
-  <div class="row justify-content-center">
+  <h1 class="mt-5">プロフィール編集</h1>
+  <%= render 'layouts/errors', obj: @user %>
 
-    <%= form_with model: @user, url: user_path(@user), local: true do |f| %>
-    
-      <h1>プロフィール編集</h1>
+  <div class="row mt-3 pt-5 bg-white">
 
-      <%= render 'layouts/errors', obj: @user %>
-
+    <div class="col-md-6">
+      <%= form_with model: @user, url: user_path(@user), local: true do |f| %>
       <div class="form-group">
         <%= f.label :name %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class:"form-control" %>
       </div>
       <div class="form-group">
         <%= f.label :email %>
-        <%= f.text_field :email %>
+        <%= f.text_field :email, class:"form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :image %>
+        <%= f.label :image %><br>
         <%= f.attachment_field :image %>
       </div>
       <div class="form-group">
         <%= f.label :smart_phone %>
-        <%= f.text_field :smart_phone %>
+        <%= f.text_field :smart_phone, class:"form-control" %>
       </div>
       <div class="form-group">
         <%= f.label :tablet %>
-        <%= f.text_field :tablet %>
+        <%= f.text_field :tablet, class:"form-control" %>
       </div>
       <div class="form-group">
         <%= f.label :mno_mvno %>
-        <%= f.text_field :mno_mvno %>
+        <%= f.text_field :mno_mvno, class:"form-control" %>
       </div>
       <div class="form-group">
         <%= f.label :background %>
-        <%= f.text_field :background %>
+        <%= f.text_field :background, class:"form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group ml-3">
+        <%= f.label :itemimage %><br>
+        <%= f.attachment_field :itemimage %>
       </div>
       <div class="form-group">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th>アイテム名</th>
+              <th>メーカー</th>
+            </tr>
+          </thead>
+          <tbody>
         <%= f.fields_for :items do |i|%>
-          <%= i.label :name %>
-          <%= i.text_field :name, placeholder: "アイテム名" %>
-          <%= i.label :maker %>
-          <%= i.text_field :maker, placeholder: "メーカー" %><br>
-        <% end %><br>
+            <tr>
+              <td><%= i.text_field :name, placeholder: "アイテム名", class:"form-control" %></td>
+              <td><%= i.text_field :maker, placeholder: "メーカー", class:"form-control" %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
-      <div class="form-group">
-        <%= f.label :choice_reason %>
-        <%= f.text_area :choice_reason %>
-      </div>
+    </div>
 
-      <%= f.submit "編集完了", class:"btn btn-primary" %>
+  </div>
 
+  <div class="row bg-white">
+    <div class="form-group col-md-12">
+      <%= f.label :choice_reason %>
+      <%= f.text_area :choice_reason, rows: 8, class:"form-control" %>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-end bg-white">
+    <p class="mr-5 mt-3">
+      <%= f.submit "編集完了", class:"btn btn-lg btn-primary" %>
+    </p>
     <% end %>
   </div>
 </div>

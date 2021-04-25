@@ -5,17 +5,17 @@
       <%= form_with model: @article, local: true do |f| %>
 
         <div class="form-group">
-          <%= f.label :image, class:"contact-title" %>
+          <%= f.label :image, class:"contact-title" %><br>
           <%= f.attachment_field :image %>
         </div>
 
         <div class="form-group mt-5">
           <%= f.label :"タイトル(50文字まで)", class:"contact-title" %><br>
           <%= f.text_field :title, autofocus: true, class:"form-control form-control-lg js-text" %><br>
-          <p class="js-text-count pull-right"></p>
+          <div class="d-flex justify-content-end"><p class="js-text-count"></p></div>
         </div>
 
-        <div class="form-group mt-5">
+        <div class="form-group mt-3">
           <%= f.label :body, class:"contact-title" %><br>
           <%= f.text_area :body, class:"form-control", rows:20 %>
         </div>
@@ -25,14 +25,14 @@
           <%= f.select :level, Article.levels.keys, {prompt: "選択して下さい"} %>
         </div>
 
-        <div class="form-group mt-5">
+        <div class="form-group mt-3">
           <%= f.label :タグ（複数選択可）, class:"contact-title" %><br>
           <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
-            <span class="pt-3"><%= tag.label { tag.check_box + tag.text } %></span>
+            <div class="d-inline mr-1"><%= tag.label { tag.check_box + tag.text } %></div>
           <% end %>
         </div>
 
-        <%= f.submit "投稿する", class:"btn btn-success mt-3 px-5 py-3 pull-right" %>
+        <div class="d-flex justify-content-end"><%= f.submit "投稿する", class:"btn btn-success mt-3 px-5 py-3 pull-right" %></div>
 
       <% end %>
     </div>

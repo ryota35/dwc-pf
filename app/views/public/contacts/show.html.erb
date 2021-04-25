@@ -1,14 +1,15 @@
-<div class="main-login d-flex align-items-center justify-content-center">
-  <div class="p-5 bg-light">
-
+<div class="containe">
+  <div class="rowr d-flex align-items-center justify-content-center">
+    <div class="col-md-6 mt-5 p-5 bg-white">
     <h2 class="mb-5">お問い合わせありがとうございます。<br>以下の内容で送信が完了しました。</h2>
 
-    <h3 class="mt-5">タイトル</h3>
-    <h3><%= @contact.title %></h3>
-    <h3 class="mt-5">内容</h3>
-    <p class="mb-5"><%= @contact.message %></p>
+    <h4 class="mt-5 mb-3">タイトル</h4>
+    <h4><%= @contact.title %></h4>
+    <h4 class="mt-5">内容</h4>
+    <p class="h5 mt-3 mb-5"><%= safe_join(@contact.message.split("\n"),tag(:br)) %></p>
     <div class="text-center">
-    <%= link_to "トップへ", root_path, class:"btn btn-primary text-white" %>
+    <%= link_to "トップへ", root_path, class:"btn btn-lg btn-primary text-white" %>
+    </div>
     </div>
   </div>
 </div>

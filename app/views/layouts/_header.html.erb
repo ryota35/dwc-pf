@@ -14,24 +14,24 @@
         <div class="collapse navbar-collapse" id="responsiveMenu">
           <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
-              <li><%= link_to "About", about_path, class: 'border border-dark rounded nav-link mr-4 px-4' %></li>
-              <li><%= link_to "記事一覧", articles_path, class: 'border border-dark rounded nav-link mr-4 px-4' %></li>
-              <li><%= link_to "クイズ", new_quiz_path, class: 'border border-dark rounded nav-link mr-4 px-4' %></li>
-              <li><%= link_to "マイページ", user_path(current_user), class: 'border border-dark rounded nav-link mr-4 px-4' %></li>
-              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'border border-dark rounded nav-link mr-4 px-4' %></li>
-              <li><%= link_to "お問い合わせ", new_contact_path, class: 'border border-dark rounded nav-link px-4' %></li>
+              <li><%= link_to "About", about_path, class: 'border border-dark rounded nav-link mr-4 p-4' %></li>
+              <li><%= link_to "記事一覧", articles_path, class: 'border border-dark rounded nav-link mr-4 p-4' %></li>
+              <li><%= link_to "クイズ", new_quiz_path, class: 'border border-dark rounded nav-link mr-4 p-4' %></li>
+              <li><%= link_to "マイページ", user_path(current_user), class: 'border border-dark rounded nav-link mr-4 p-4' %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'border border-dark rounded nav-link mr-4 p-4' %></li>
+              <li><%= link_to "お問い合わせ", new_contact_path, class: 'border border-dark rounded nav-link p-4' %></li>
             <% elsif admin_signed_in? %>
-              <li><%= link_to "記事一覧", admins_articles_path, class: 'border border-dark rounded nav-link mr-4 px-4' %></li>
-              <li><%= link_to "クイズ問題一覧", admins_quizzes_path(sort: 0), class: 'border border-dark rounded nav-link mr-4 px-4' %></li>
-              <li><%= link_to "問い合わせ一覧", admins_contacts_path, class: 'border border-dark rounded nav-link mr-4 px-4' %></li>
-              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'border border-dark rounded nav-link px-4' %></li>
+              <li><%= link_to "記事一覧", admins_articles_path, class: 'border border-dark rounded nav-link mr-4 p-4' %></li>
+              <li><%= link_to "クイズ問題一覧", admins_quizzes_path(sort: 0), class: 'border border-dark rounded nav-link mr-4 p-4' %></li>
+              <li><%= link_to "問い合わせ一覧", admins_contacts_path, class: 'border border-dark rounded nav-link mr-4 p-4' %></li>
+              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'border border-dark rounded nav-link p-4' %></li>
             <% else %>
-              <li><%= link_to "About", about_path, class: 'border border-dark rounded nav-link mr-4 px-4' %></li>
-              <li><%= link_to "記事一覧", articles_path, class: 'border border-dark rounded nav-link mr-4 px-4' %></li>
-              <li><%= link_to "ログイン", new_user_session_path, class: 'border border-dark rounded nav-link mr-4 px-4' %></li>
-              <li><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'border border-dark rounded nav-link mr-4 px-4' %></li>
-              <li><%= link_to "会員登録", new_user_registration_path, class: 'border border-dark rounded nav-link mr-4 px-4' %></li>
-              <li><%= link_to "お問い合わせ", new_contact_path, class: 'border border-dark rounded nav-link px-4' %></li>
+              <li><%= link_to "About", about_path, class: 'border border-dark rounded nav-link mr-4 p-4' %></li>
+              <li><%= link_to "記事一覧", articles_path, class: 'border border-dark rounded nav-link mr-4 p-4' %></li>
+              <li><%= link_to "ログイン", new_user_session_path, class: 'border border-dark rounded nav-link mr-4 p-4' %></li>
+              <li><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'border border-dark rounded nav-link mr-4 p-4' %></li>
+              <li><%= link_to "会員登録", new_user_registration_path, class: 'border border-dark rounded nav-link mr-4 p-4' %></li>
+              <li><%= link_to "お問い合わせ", new_contact_path, class: 'border border-dark rounded nav-link p-4' %></li>
             <% end %>
           </ul>
         </div>

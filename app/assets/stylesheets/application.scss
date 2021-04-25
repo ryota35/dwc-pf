@@ -29,7 +29,13 @@ html {
 
 body {
   background-color: #f3f3f3;
-  font-family: "MS Pゴシック";
+  font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+}
+
+
+input[type="radio"],input[type="checkbox"] {
+ vertical-align: middle;
+ margin-right: 2px;
 }
 
 .header {
@@ -40,7 +46,7 @@ body {
 }
 
 .logo {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   font-family: 'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
   text-shadow: gray 1px 1px 3px;
@@ -84,14 +90,26 @@ p {
   word-break: break-all;
 }
 
+td {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
+label>p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
 .question-block {
   display: flex;
   flex-wrap: wrap;
 }
 
-.question-p {
-  white-space: nowrap;
-}
+// .question-p {
+//   white-space: nowrap;
+// }
 
 .top-image {
   background-image: image-url("img/top-image2.jpg");
@@ -107,34 +125,52 @@ p {
 }
 
 .top-text {
-  font-size: 3.5rem;
-  // font-weight: bold;
+  font-size: 3rem;
   font-family: 'Corben', cursive;
   letter-spacing: 10px;
   text-shadow: #FC0 1px 0 10px;
 }
 
 .top-sentence {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
   font-family: 'Corben', cursive;
 }
 
+.top-sentence>a {
+  border-bottom: 2px solid gray;
+}
+
+.top-sentence>a:hover {
+  border-bottom: 2px solid gray;
+  text-shadow: gray 1px 1px 1px;
+}
+
+.new-user>a:hover {
+  text-shadow: gray 1px 1px 1px;
+}
+
+.new-quiz>a:hover {
+  text-shadow: gray 1px 1px 1px;
+}
+
 .pagination {
   justify-content: center;
+  margin-top: 30px;
 }
 
 .pagination>li {
   border: none;
-  color: #696969;
+  color: #000;
   border-radius: 20px;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .pagination>li>a {
   border: none;
-  color: #696969;
-  border-radius: 20px;
+  color: #000;
+  padding: 10px 15px;
+  border-radius: 30px;
 }
 
 .pagination>.active>a {
@@ -178,6 +214,11 @@ a:link, a:visited, a:hover, a:active {
   color: red;
 }
 
+.tag-index>p {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
 .profile {
   border-collapse: collapse;
 }
@@ -189,6 +230,71 @@ table.profile tbody {
 table.profile td {
   border: 1px solid #000066;
   background:#ffffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+table.profile th {
+  background-color: #fff;
+  border: 1px solid #000066;
+  background:#ffffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.profile-image {
+  border-radius: 10px;
+}
+
+#tab-menu {
+  display: flex;
+  margin-bottom: 0;
+}
+
+#tab-menu li {
+  list-style-type: none;
+  width: 34%;
+}
+
+#tab-menu li a {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  text-align: center;
+  background: gray;
+  border: 1px solid #000;
+}
+
+#tab-menu .active {
+  background: #fff;
+  color: #000;
+}
+
+#tab-contents {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#tab-contents .tab {
+  width: 100%;
+  padding: 0px 30px 0px 30px;
+  background: #fff;
+  border: 1px solid #000;
+  border-top: none;
+}
+
+.tab>ul>li {
+  list-style: none;
+  font-size: 1.5rem;
+  margin-top: 15px;
+  border-bottom: solid 1px black;
+}
+
+.tab>ul>li>a:hover {
+  color: red;
 }
 
 .contact-title {
@@ -285,17 +391,11 @@ table.profile td {
 }
 
 .about-text-sentence>li {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   letter-spacing: 3px;
   margin-top: 10px;
 }
-
-.family-test {
-  letter-spacing: 2px;
-  font-family: YuGothic,'Yu Gothic';
-}
-
 
 
 @media only screen and (max-width:600px) {
