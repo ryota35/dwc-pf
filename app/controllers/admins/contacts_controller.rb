@@ -11,3 +11,4 @@ class Admins::ContactsController < ApplicationController
       params.require(:contact).permit(:title, :message)
     end
 end
+

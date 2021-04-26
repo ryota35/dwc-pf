@@ -1,8 +1,15 @@
 <div class="container pt-5">
-
-  <h1 class="text-center"><span class="bg-white font-weight-bold">あなたは何点とれるかな？通信・ガジェット知識検定</span></h1>
-
   <div class="row d-flex justify-content-center mt-5">
+
+    <div class="col-md-8">
+      <h1 class="text-center">通信・ガジェット知識検定</h1>
+      <p class="quiz-description h4 mt-5">
+        以下の30問にチャレンジしてください。すべての問題の解答を選択したら、このページの下にある「採点する」ボタンをクリックしてください。解答結果のページが表示されます。<br>
+        1問1点で満点は30点です。25点以上獲得した方は記事の投稿が出来るようになります。
+      </p>
+      <p class="text-center h4 my-5">0～15点:初級&emsp;16～25点:中級&emsp;26～30点:上級</p>
+    </div>
+
     <div class="col-md-9 bg-white">
 
     <%= form_with model: @score, url: quizzes_path, local: true do |f| %>

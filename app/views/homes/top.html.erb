@@ -1,6 +1,7 @@
 
   <div class="container pt-5">
     <div class="row">
+      <%= render partial: 'layouts/flash' %>
       <div class="col-md-12 mx-auto d-flex justify-content-center align-items-center top-image">
         <div class="col-md-6 text-center d-flex flex-column justify-content-center bg-white top-group">
           <p class="top-text">なにえらぶ？</p>
@@ -28,3 +29,5 @@
   <h1 class="mt-5">会員　新着投稿・記事</h1>
   <%= render 'homes/article-slide', obj: @user_articles %>
 </div>
+
+

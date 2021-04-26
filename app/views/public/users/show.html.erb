@@ -1,7 +1,7 @@
 <div class="container pt-5">
 
 <h1>マイページ</h1>
-
+  <%= render partial: 'layouts/flash' %>
   <div class="row d-flex align-items-baseline mt-5">
     <div class="col-md-6">
       <%= attachment_image_tag @user, :image, :fill, 150, 150, format: "jpeg", class:"profile-image", fallback: 'img/no_image.png', size: '150x150' %>
@@ -115,7 +115,7 @@
 
       <div id="tab1" class="tab rounded bg-white">
         <% if @articles.blank? %>
-          <h3 class="new-quiz py-3"><%= link_to "クイズ", new_quiz_path %>を受けて頂くと表示されます</h3>
+          <h3 class="new-quiz py-5"><%= link_to "クイズ", new_quiz_path %>を受けて頂くと表示されます</h3>
         <% else %>
           <ul>
             <% @articles.each do |article| %>
@@ -129,7 +129,7 @@
 
       <div id="tab2" class="tab rounded bg-white">
         <% if @user_articles.blank? %>
-          <h3 class="py-3">クイズで25点以上を獲得すると投稿出来るようになります</h3>
+          <h3 class="py-5">クイズで25点以上を獲得すると投稿出来るようになります</h3>
         <% else %>
           <ul>
             <% @user_articles.each do |article| %>
@@ -146,7 +146,7 @@
 
      <div id="tab3" class="tab rounded bg-white">
        <% if @user_favorite_articles.blank? %>
-          <h3 class="py-3">お気に入り記事の登録がありません</h3>
+          <h3 class="py-5">お気に入り記事の登録がありません</h3>
         <% else %>
           <ul>
             <% @user_favorite_articles.each do |article| %>
