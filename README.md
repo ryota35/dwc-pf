@@ -20,7 +20,12 @@
 見直しを考え始めた際に判断材料として使う
 
 ## 設計書
-URL
+データベース設計
+https://docs.google.com/spreadsheets/d/1zHGutVFpu5L_msM0IF1DnIJtZUNFCgaF/edit#gid=1803198645
+ER図
+https://drive.google.com/file/d/11ZIuA9HSFyZOAmLwnS9B67508yMMBSij/view?usp=sharing
+詳細設計
+https://docs.google.com/spreadsheets/d/1zfMj5YbWgdv1KCakiZtwPdqlaDhwv3xz982UtuSzmlY/edit#gid=0
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1ijxOXwuGSdLOTZNBVjDjLffnhREvs7YHzEWq-FcPomQ/edit?usp=sharing
