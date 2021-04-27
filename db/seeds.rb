@@ -413,6 +413,22 @@ Quiz.create!(
     level: 0
   )
 
+    Quiz.create!(
+    question: "リチウムイオン電池に穴をあけると発火する場合がある、〇か✕か",
+    choice1: "〇",
+    choice2: "✕",
+    answer: "1",
+    level: 0
+  )
+
+  Quiz.create!(
+    question: "画面サイズがスマホ以上タブレット未満の機種をファブレットと呼ぶことがある、〇か✕か",
+    choice1: "〇",
+    choice2: "✕",
+    answer: "1",
+    level: 0
+  )
+
   Quiz.create!(
     question: "5Gの特徴として挙げられる項目のうち間違っているのはどれか？",
     choice1: "低遅延",
@@ -509,6 +525,22 @@ Quiz.create!(
     question: "大手キャリアの２年契約について説明できる",
     choice1: "はい",
     choice2: "いいえ",
+    answer: "1",
+    level: 1
+  )
+
+  Quiz.create!(
+    question: "ユニバーサルサービス料の金額はたまに変わる、〇か✕か",
+    choice1: "〇",
+    choice2: "✕",
+    answer: "1",
+    level: 1
+  )
+
+  Quiz.create!(
+    question: "画面上で指紋認証できるスマホが存在する、〇か✕か",
+    choice1: "〇",
+    choice2: "✕",
     answer: "1",
     level: 1
   )
