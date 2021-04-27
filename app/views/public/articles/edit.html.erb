@@ -2,6 +2,7 @@
   <div class="row">
 
     <div class="col-md-8">
+      <%= render "layouts/errors", obj: @article %>
       <%= form_with model: @article, local: true do |f| %>
 
         <div class="form-group">
@@ -35,7 +36,7 @@
         <div class="d-flex justify-content-end">
           <%= f.submit "編集完了", class:"btn btn-success btn-lg mt-3 px-5 py-3" %>
         </div>
-        
+
       <% end %>
     </div>
 
