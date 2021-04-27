@@ -5,7 +5,7 @@
       <h1 class="text-center">通信・ガジェット知識検定</h1>
       <p class="quiz-description h4 mt-5">
         以下の30問にチャレンジしてください。すべての問題の解答を選択したら、このページの下にある「採点する」ボタンをクリックしてください。解答結果のページが表示されます。<br>
-        1問1点で満点は30点です。25点以上獲得した方は記事の投稿が出来るようになります。
+        1問1点で満点は30点です。26点以上獲得した方は記事の投稿が出来るようになります。
       </p>
       <p class="text-center h4 my-5">0～15点:初級&emsp;16～25点:中級&emsp;26～30点:上級</p>
     </div>
@@ -40,7 +40,7 @@
         <% end %>
 
       <% else %>
-      
+
         <p class="pt-5 font-weight-bold text-danger">未回答の問題があります</p>
         <% @quizzes.each.with_index(1) do |quiz, n| %>
           <% if quiz.choice3.nil? %>
