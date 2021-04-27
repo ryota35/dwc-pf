@@ -43,8 +43,8 @@ class Public::UsersController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit(:name, :email, :image, :smart_phone, :tablet, :mno_mvno, :background, :choice_reason, :itemimage, items_attributes:[:id, :name, :maker])
-  end
+    def user_params
+      params.require(:user).permit(:name, :email, :image, :smart_phone, :tablet, :mno_mvno, :background, :choice_reason, :itemimage, items_attributes:[:id, :name, :maker])
+    end
 
 end

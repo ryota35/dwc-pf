@@ -1,7 +1,6 @@
 class Admins::QuizzesController < ApplicationController
   before_action :authenticate_admin!
-  
-  
+
   def index
     case (params[:sort])
     when "0"
@@ -48,8 +47,9 @@ class Admins::QuizzesController < ApplicationController
   end
 
   private
-  def quiz_params
-    params.require(:quiz).permit(:question, :choice1, :choice2, :choice3, :choice4, :answer, :level)
-  end
+
+    def quiz_params
+      params.require(:quiz).permit(:question, :choice1, :choice2, :choice3, :choice4, :answer, :level)
+    end
 
 end

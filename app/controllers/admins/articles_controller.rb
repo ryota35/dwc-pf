@@ -1,7 +1,6 @@
 class Admins::ArticlesController < ApplicationController
   before_action :authenticate_admin!
 
-
   def new
     @article = Article.new
   end
@@ -43,6 +42,7 @@ class Admins::ArticlesController < ApplicationController
     @article.destroy
     redirect_to admins_articles_path
   end
+
 
   private
 

@@ -32,6 +32,7 @@ class Public::QuizzesController < ApplicationController
   end
 
   private
+  
     def score_params
         params.require(:score).permit(:score, results_attributes:[:quiz_id, :selection_result, :judgement])
     end

@@ -40,6 +40,7 @@
         <% end %>
 
       <% else %>
+      
         <p class="pt-5 font-weight-bold text-danger">未回答の問題があります</p>
         <% @quizzes.each.with_index(1) do |quiz, n| %>
           <% if quiz.choice3.nil? %>

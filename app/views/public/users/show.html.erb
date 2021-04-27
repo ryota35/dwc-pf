@@ -1,22 +1,26 @@
 <div class="container pt-5">
 
-<h1>マイページ</h1>
+  <h1>マイページ</h1>
   <%= render partial: 'layouts/flash' %>
   <div class="row d-flex align-items-baseline mt-5">
+
     <div class="col-md-6">
+
       <%= attachment_image_tag @user, :image, :fill, 150, 150, format: "jpeg", class:"profile-image", fallback: 'img/no_image.png', size: '150x150' %>
+
       <div class="d-flex mt-5">
-      <h2><span class="px-5 rounded-pill bg-warning">マイプロフィール
-        <% if @user == current_user %>
-        <%= link_to edit_user_path(@user), class:"ml-auto" do %>
-          <i class="fas fa-user-edit"></i>
+        <h2><span class="px-5 rounded-pill bg-warning">マイプロフィール
+          <% if @user == current_user %>
+          <%= link_to edit_user_path(@user), class:"ml-auto" do %>
+            <i class="fas fa-user-edit"></i>
+          <% end %>
+          <% end %></span>
+        </h2>
+        <% if Score.exists?(user_id: current_user.id) && current_user.scores.maximum(:score) >= 25 %>
+          <%= link_to  new_article_path do %><h2 class="ml-5"><span class="px-5 rounded-pill bg-warning">記事を書く<i class="fas fa-edit"></i></span></h2><% end %>
         <% end %>
-        <% end %></span>
-      </h2>
-      <% if Score.exists?(user_id: current_user.id) && current_user.scores.maximum(:score) >= 25 %>
-        <%= link_to  new_article_path do %><h2 class="ml-5"><span class="px-5 rounded-pill bg-warning">記事を書く<i class="fas fa-edit"></i></span></h2><% end %>
-      <% end %>
       </div>
+
       <table class="table profile bg-white">
         <tbody>
           <tr>
@@ -75,9 +79,12 @@
           </tr>
         </tbody>
       </table>
-      </div>
+
+    </div>
+
     <div class="col-md-6">
       <%= attachment_image_tag @user, :itemimage, :fill, 260, 150, format: "jpeg", class:"profile-image", fallback: 'img/no_image.png', size: '260x150' %>
+
       <h2 class="mt-5"><span class="px-5 rounded-pill bg-warning">アイテム's
         <% if @user == current_user %>
           <%= link_to edit_user_path(@user), class:"ml-auto" do %>
@@ -85,85 +92,87 @@
           <% end %>
         <% end %></span>
       </h2>
+
       <% if @user.items.blank? %>
-      <h1>アイテムが登録されていません</h1>
+        <h1>アイテムが登録されていません</h1>
       <% else %>
-      <table class="table profile bg-white">
-        <thead>
-          <tr>
-            <th class="text-center">アイテム名</th>
-            <th class="text-center">メーカー</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @items.each do |item| %>
+        <table class="table profile bg-white">
+          <thead>
             <tr>
-              <td class="w-50"><% if item.name.blank? %>未登録<% else %><%= item.name %><% end %></td>
-              <td class="w-50"><% if item.maker.blank? %>未登録<% else %><%= item.maker %><% end %></td>
+              <th class="text-center">アイテム名</th>
+              <th class="text-center">メーカー</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <% @items.each do |item| %>
+              <tr>
+                <td class="w-50"><% if item.name.blank? %>未登録<% else %><%= item.name %><% end %></td>
+                <td class="w-50"><% if item.maker.blank? %>未登録<% else %><%= item.maker %><% end %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       <% end %>
-</div>
     </div>
 
-
-      <ul id="tab-menu" class="mt-5">
-        <li><a href="#tab1" class="active">おすすめ</a></li>
-        <li><a href="#tab2" class="">投稿した記事</a></li>
-        <li><a href="#tab3" class="">お気に入り</a></li>
-      </ul>
+  </div>
 
 
-      <div id="tab-contents">
+    <ul id="tab-menu" class="mt-5">
+      <li><a href="#tab1" class="active">おすすめ</a></li>
+      <li><a href="#tab2" class="">投稿した記事</a></li>
+      <li><a href="#tab3" class="">お気に入り</a></li>
+    </ul>
 
-      <div id="tab1" class="tab rounded bg-white">
-        <% if @articles.blank? %>
-          <h3 class="new-quiz py-5"><%= link_to "クイズ", new_quiz_path %>を受けて頂くと表示されます</h3>
-        <% else %>
-          <ul class="py-3">
-            <% @articles.each do |article| %>
-              <li class="d-flex align-items-center pb-2">
-                <%= link_to article.title, article_path(article), class:"flex-grow-1" %><i class="far fa-clock"></i>&nbsp;&nbsp;<%= article.created_at.strftime('%Y.%m.%d') %><p class="badge badge-secondary ml-3 mb-0"><%= article.level %></p>
-              </li>
-            <% end %>
-          </ul>
-        <% end %>
-      </div>
 
-      <div id="tab2" class="tab rounded bg-white">
-        <% if @user_articles.blank? %>
-          <h3 class="py-5">クイズで25点以上を獲得すると投稿出来るようになります</h3>
-        <% else %>
-          <ul class="py-3">
-            <% @user_articles.each do |article| %>
-              <li class="d-flex align-items-center pb-2">
-                <%= link_to article.title, article_path(article), class:"flex-grow-1" %><i class="far fa-clock"></i>&nbsp;&nbsp;<%= article.created_at.strftime('%Y.%m.%d') %><p class="badge badge-secondary mb-0 mx-3"><%= article.level %></p>
-                <% if @user = current_user %>
-                  <span><%= link_to "編集する", edit_article_path(article), class:"btn btn-lg btn-success" %></span>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-        <% end %>
-      </div>
+  <div id="tab-contents">
 
-     <div id="tab3" class="tab rounded bg-white">
-       <% if @user_favorite_articles.blank? %>
-          <h3 class="py-5">お気に入り記事の登録がありません</h3>
-        <% else %>
-          <ul class="py-3">
-            <% @user_favorite_articles.each do |article| %>
-              <li class="d-flex align-items-center pb-2">
-                <%= link_to article.title, article_path(article), class:"flex-grow-1" %><i class="far fa-clock"></i>&nbsp;&nbsp;<%= article.created_at.strftime('%Y.%m.%d') %><p class="badge badge-secondary mb-0 mx-3"><%= article.level %></p>
-              </li>
-            <% end %>
-          </ul>
-        <% end %>
-      </div>
-
+    <div id="tab1" class="tab rounded bg-white">
+      <% if @articles.blank? %>
+        <h3 class="new-quiz py-5"><%= link_to "クイズ", new_quiz_path %>を受けて頂くと表示されます</h3>
+      <% else %>
+        <ul class="py-3">
+          <% @articles.each do |article| %>
+            <li class="d-flex align-items-center pb-2">
+              <%= link_to article.title, article_path(article), class:"flex-grow-1" %><i class="far fa-clock"></i>&nbsp;&nbsp;<%= article.created_at.strftime('%Y.%m.%d') %><p class="badge badge-secondary ml-3 mb-0"><%= article.level %></p>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
     </div>
+
+    <div id="tab2" class="tab rounded bg-white">
+      <% if @user_articles.blank? %>
+        <h3 class="py-5">クイズで25点以上を獲得すると投稿出来るようになります</h3>
+      <% else %>
+        <ul class="py-3">
+          <% @user_articles.each do |article| %>
+            <li class="d-flex align-items-center pb-2">
+              <%= link_to article.title, article_path(article), class:"flex-grow-1" %><i class="far fa-clock"></i>&nbsp;&nbsp;<%= article.created_at.strftime('%Y.%m.%d') %><p class="badge badge-secondary mb-0 mx-3"><%= article.level %></p>
+              <% if @user = current_user %>
+                <span><%= link_to "編集する", edit_article_path(article), class:"btn btn-lg btn-success" %></span>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+
+   <div id="tab3" class="tab rounded bg-white">
+     <% if @user_favorite_articles.blank? %>
+        <h3 class="py-5">お気に入り記事の登録がありません</h3>
+      <% else %>
+        <ul class="py-3">
+          <% @user_favorite_articles.each do |article| %>
+            <li class="d-flex align-items-center pb-2">
+              <%= link_to article.title, article_path(article), class:"flex-grow-1" %><i class="far fa-clock"></i>&nbsp;&nbsp;<%= article.created_at.strftime('%Y.%m.%d') %><p class="badge badge-secondary mb-0 mx-3"><%= article.level %></p>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+
+  </div>
 </div>
 
 
