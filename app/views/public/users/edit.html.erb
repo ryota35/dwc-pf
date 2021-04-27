@@ -2,7 +2,7 @@
   <h1 class="mt-5">プロフィール編集</h1>
   <%= render 'layouts/errors', obj: @user %>
 
-  <div class="row mt-3 pt-5 bg-white">
+  <div class="row user-edit mt-3 pt-5 bg-white">
 
     <div class="col-md-6">
       <%= form_with model: @user, url: user_path(@user), local: true do |f| %>
@@ -45,8 +45,8 @@
         <table class="table table-borderless">
           <thead>
             <tr>
-              <th>アイテム名</th>
-              <th>メーカー</th>
+              <th class="text-center">アイテム名(5個まで)</th>
+              <th class="text-center">メーカー(5個まで)</th>
             </tr>
           </thead>
           <tbody>
@@ -63,7 +63,7 @@
 
   </div>
 
-  <div class="row bg-white">
+  <div class="row user-edit bg-white">
     <div class="form-group col-md-12">
       <%= f.label :choice_reason %>
       <%= f.text_area :choice_reason, rows: 8, class:"form-control" %>

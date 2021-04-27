@@ -17,8 +17,8 @@ class Public::UsersController < ApplicationController
     else
     end
 
-    @articles = Article.where(level: @user_level).limit(5).order("created_at DESC")
-    @user_articles = Article.where(user_id: @user).limit(5).order("created_at DESC")
+    @articles = Article.where(level: @user_level).order("created_at DESC")
+    @user_articles = Article.where(user_id: @user).order("created_at DESC")
 
     favorite_articles = Favorite.where(user_id: current_user.id).pluck(:article_id)
     @user_favorite_articles = Article.where(id: favorite_articles)

@@ -7,7 +7,10 @@ ja:
       item: アイテム
       article: 記事
       quiz: クイズ
+      admin: 管理者
     attributes:
+      admin:
+        email: メールアドレス
       contact:
         title: タイトル
         message: お問い合わせ内容
@@ -46,4 +49,4 @@ ja:
       previous: "&lsaquo; 前"
       next: "次 &rsaquo;"
       truncate: "..."
-      
+

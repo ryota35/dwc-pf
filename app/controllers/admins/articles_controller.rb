@@ -1,16 +1,19 @@
 class Admins::ArticlesController < ApplicationController
   before_action :authenticate_admin!
-  
-  
+
+
   def new
     @article = Article.new
   end
 
   def create
-    article = Article.new(article_params)
-    article.admin_id = current_admin.id
-    article.save
-    redirect_to admins_article_path(article)
+    @article = Article.new(article_params)
+    @article.admin_id = current_admin.id
+    if @article.save
+      redirect_to admins_article_path(@article)
+    else
+      render "new"
+    end
   end
 
   def index
@@ -29,7 +32,7 @@ class Admins::ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
-      redirect_to admins_article_path(article)
+      redirect_to admins_article_path(@article)
     else
       render "edit"
     end

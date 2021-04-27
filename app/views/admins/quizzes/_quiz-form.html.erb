@@ -1,11 +1,11 @@
 <%= form_with model: quiz, local:true do |f| %>
   <%= render "layouts/errors", obj: quiz %>
 
-  <table class="table table-borderless mb-0 p-5 bg-white">
+  <table class="table table-borderless quiz-table mb-0 p-5 bg-white">
     <tbody>
       <tr>
-        <td><%= f.label :question %></td>
-        <td><%= f.text_area :question, autofocus: true, rows:2, class:"form-control" %></td>
+        <td width="20%"><%= f.label :question %></td>
+        <td width="80%"><%= f.text_area :question, autofocus: true, rows:2, class:"form-control" %></td>
       </tr>
       <tr>
         <td><%= f.label :choice1 %></td>

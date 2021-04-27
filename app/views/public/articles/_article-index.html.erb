@@ -1,22 +1,22 @@
 <div>
-  <%= link_to "初級", articles_path(sort: 1, tag_id: tag), remote: true, class:"btn btn-success px-4 mr-3" %>
-  <%= link_to "中級", articles_path(sort: 2, tag_id: tag), remote: true, class:"btn btn-primary px-4 mr-3" %>
-  <%= link_to "上級", articles_path(sort: 3, tag_id: tag), remote: true, class:"btn btn-danger px-4" %>
+  <%= link_to "初級", articles_path(sort: 1, tag_id: tag), remote: true, class:"btn btn-lg btn-success px-4 mr-3" %>
+  <%= link_to "中級", articles_path(sort: 2, tag_id: tag), remote: true, class:"btn btn-lg btn-primary px-4 mr-3" %>
+  <%= link_to "上級", articles_path(sort: 3, tag_id: tag), remote: true, class:"btn btn-lg btn-danger px-4" %>
 </div>
 
 <% if tag.nil? && level.nil? %>
 
 <% elsif tag.nil? %>
-  <p class="mt-5">"<%= level %>"で絞り込み</p>
+  <p class="mt-5 h4">"<%= level %>"で絞り込み</p>
 <% elsif level.nil? %>
-  <p class="mt-5">"<%= tag.name %>"で絞り込み</p>
+  <p class="mt-5 h4">"<%= tag.name %>"で絞り込み</p>
 <% else %>
-  <p class="mt-5">"<%= tag.name %>""<%= level %>"で絞り込み</p>
+  <p class="mt-5 h4">"<%= tag.name %>""<%= level %>"で絞り込み</p>
 <% end %>
 
 <div class="row">
   <div class="col-md-9 mt-3">
-    <table class="table table-hover bg-white">
+    <table class="table table-hover bg-white shadow">
       <tbody>
         <% @articles.each do |article| %>
           <tr class="mt-3">

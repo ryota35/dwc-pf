@@ -3,11 +3,12 @@
 
     <div class="col-md-8 mb-5">
       <h1 class="my-5">問い合わせ一覧</h1>
-        <table class="table">
+        <table class="table table-borderless table-hover shadow bg-white">
           <tbody>
             <% @contacts.each do |contact| %>
-              <tr>
-                <td><h4><%= link_to admins_contacts_path(contact_id: contact.id), remote: true do %><%= contact.title %><% end %></h4></td>
+              <tr class="d-flex align-items-center">
+                <td width="85%" class="ml-3"><h4><%= link_to admins_contacts_path(contact_id: contact.id), remote: true do %><%= contact.title %><% end %></h4></td>
+                <td width="15%" class="text-nowrap"><i class="far fa-clock"></i>&nbsp;&nbsp;<%= contact.created_at.strftime('%Y.%m.%d') %></td>
               </tr>
             <% end %>
           </tbody>

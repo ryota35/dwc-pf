@@ -1,30 +1,55 @@
-<div>
-<div class="container text-center">
-<%= form_with model: @article, url: admins_article_path, local: true do |f| %>
+<div class="container pt-5">
+  <div class="row">
 
-<div class="form-group">
-<%= f.label :添付写真 %>
-<%= f.attachment_field :image %>
-</div>
+    <div class="col-md-8">
+      <%= form_with model: @article, url: admins_article_path, local: true do |f| %>
+        <%= render "layouts/errors", obj: @article %>
+        <div class="form-group">
+          <%= f.label :image, class:"contact-title" %><br>
+          <%= f.attachment_field :image %>
+        </div>
 
-<div class="form-group">
-<%= f.label :タイトル %>
-<%= f.text_field :title, size:30 %>
-</div>
+        <div class="form-group mt-5">
+          <%= f.label :"タイトル(50文字まで)", class:"contact-title" %><br>
+          <%= f.text_field :title, autofocus: true, class:"form-control form-control-lg js-text" %><br>
+          <div class="d-flex justify-content-end"><p class="js-text-count h5"></p></div>
+        </div>
 
-<div class="form-group">
-<%= f.label :本文 %>
-<%= f.text_area :body, row:5 %>
-</div>
+        <div class="form-group mt-3">
+          <%= f.label :body, class:"contact-title" %><br>
+          <%= f.text_area :body, class:"form-control", rows:20 %>
+        </div>
 
-<div class="form-group">
-<%= f.label :レベル %>
-<%= f.select :level, Article.levels.keys, {prompt: "選択して下さい"} %>
-</div>
+        <div class="form-group mt-5">
+          <span class="mr-3"><%= f.label :level, class:"contact-title" %></span>
+          <%= f.select :level, Article.levels.keys, {prompt: "選択して下さい"} %>
+        </div>
 
-<%= f.submit "投稿する" %>
+        <div class="form-group mt-3">
+          <%= f.label :タグ（複数選択可）, class:"contact-title" %><br>
+          <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+            <div class="d-inline mr-1"><%= tag.label { tag.check_box + tag.text } %></div>
+          <% end %>
+        </div>
 
-<% end %>
+        <div class="d-flex justify-content-end">
+        <%= f.submit "編集完了", class:"btn btn-success btn-lg mt-3 px-5 py-3" %>
+        </div>
+      <% end %>
+    </div>
 
-</div>
+    <div class="col-md-4 border-left border-secondary precautions">
+      <h1>ご投稿の際の注意事項</h1>
+      <ul class="precautions-ul mt-4 ml-3">
+        <li>公序良俗に反しない内容であること</li>
+        <li>著作権、肖像権等を侵害しないこと</li>
+        <li>誹謗・中傷する内容でないこと</li>
+        <li>個人情報は投稿しないこと</li>
+        <li>タイトルと本文はなるべく食い違わないようにすること</li>
+        <li>商用の宣伝などをしないこと</li>
+        <li>事実ではなく、予想や推論を投稿する場合にはそれを明記すること</li>
+      </ul>
+    </div>
+
+  </div>
 </div>

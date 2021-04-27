@@ -2,13 +2,13 @@
 
   <div class="row d-flex flex-column align-items-center mt-5">
     <%= render partial: 'layouts/flash' %>
-    <div class="col-md-7 p-0 bg-white">
+    <div class="col-md-7 shadow p-0 bg-white">
 
       <div class="text-center"><%= attachment_image_tag @article, :image, class:"img-fluid", fallback: 'img/no_image.png' %></div>
 
       <div class="d-flex align-items-center mt-4 ml-3">
         <h2 class="font-weight-bold flex-grow-1 mr-3"><%= @article.title%></h2>
-        
+
         <span class="favorite_form mr-3 mb-2">
           <%= render "public/favorites/favorite", article: @article %>
         </span>
@@ -42,7 +42,7 @@
     </div>
 
 
-  <div class="col-md-7 p-0 mt-5 pb-4 bg-white">
+  <div class="col-md-7 shadow p-0 mt-5 pb-4 bg-white">
 
     <h2 class="font-weight-bold ml-3 mt-3">コメント</h2>
 
@@ -50,7 +50,7 @@
       <%= render "public/comments/comment-index", comments: @comments, article: @article %>
     </div>
 
-    <div class="new-comment mt-3 ml-3 mr-5">
+    <div class="new-comment mt-3 ml-3 mr-3">
       <%= render "public/comments/new-comment", comment: @comment, article: @article %>
     </div>
 

@@ -5,13 +5,18 @@
   <div class="row d-flex align-items-baseline mt-5">
     <div class="col-md-6">
       <%= attachment_image_tag @user, :image, :fill, 150, 150, format: "jpeg", class:"profile-image", fallback: 'img/no_image.png', size: '150x150' %>
-      <h2 class="mt-5"><span class="px-5 rounded-pill bg-warning">マイプロフィール
+      <div class="d-flex mt-5">
+      <h2><span class="px-5 rounded-pill bg-warning">マイプロフィール
         <% if @user == current_user %>
         <%= link_to edit_user_path(@user), class:"ml-auto" do %>
           <i class="fas fa-user-edit"></i>
         <% end %>
         <% end %></span>
       </h2>
+      <% if Score.exists?(user_id: current_user.id) && current_user.scores.maximum(:score) >= 25 %>
+        <%= link_to  new_article_path do %><h2 class="ml-5"><span class="px-5 rounded-pill bg-warning">記事を書く<i class="fas fa-edit"></i></span></h2><% end %>
+      <% end %>
+      </div>
       <table class="table profile bg-white">
         <tbody>
           <tr>
@@ -117,10 +122,10 @@
         <% if @articles.blank? %>
           <h3 class="new-quiz py-5"><%= link_to "クイズ", new_quiz_path %>を受けて頂くと表示されます</h3>
         <% else %>
-          <ul>
+          <ul class="py-3">
             <% @articles.each do |article| %>
-              <li class="d-flex align-items-center">
-                <%= link_to article.title, article_path(article), class:"flex-grow-1" %><p class="badge badge-secondary mb-0"><%= article.level %></p>
+              <li class="d-flex align-items-center pb-2">
+                <%= link_to article.title, article_path(article), class:"flex-grow-1" %><i class="far fa-clock"></i>&nbsp;&nbsp;<%= article.created_at.strftime('%Y.%m.%d') %><p class="badge badge-secondary ml-3 mb-0"><%= article.level %></p>
               </li>
             <% end %>
           </ul>
@@ -131,12 +136,12 @@
         <% if @user_articles.blank? %>
           <h3 class="py-5">クイズで25点以上を獲得すると投稿出来るようになります</h3>
         <% else %>
-          <ul>
+          <ul class="py-3">
             <% @user_articles.each do |article| %>
-              <li class="d-flex align-items-center">
-                <%= link_to article.title, article_path(article), class:"flex-grow-1" %><p class="badge badge-secondary mb-0 mr-3"><%= article.level %></p>
+              <li class="d-flex align-items-center pb-2">
+                <%= link_to article.title, article_path(article), class:"flex-grow-1" %><i class="far fa-clock"></i>&nbsp;&nbsp;<%= article.created_at.strftime('%Y.%m.%d') %><p class="badge badge-secondary mb-0 mx-3"><%= article.level %></p>
                 <% if @user = current_user %>
-                  <span><%= link_to "編集する", edit_article_path(article), class:"btn btn-success" %></span>
+                  <span><%= link_to "編集する", edit_article_path(article), class:"btn btn-lg btn-success" %></span>
                 <% end %>
               </li>
             <% end %>
@@ -148,13 +153,10 @@
        <% if @user_favorite_articles.blank? %>
           <h3 class="py-5">お気に入り記事の登録がありません</h3>
         <% else %>
-          <ul>
+          <ul class="py-3">
             <% @user_favorite_articles.each do |article| %>
-              <li class="d-flex align-items-center">
-                <%= link_to article.title, article_path(article), class:"flex-grow-1" %><p class="badge badge-secondary mb-0 mr-3"><%= article.level %></p>
-                <% if @user = current_user %>
-                  <span><%= link_to "編集する", edit_article_path(article), class:"btn btn-success" %></span>
-                <% end %>
+              <li class="d-flex align-items-center pb-2">
+                <%= link_to article.title, article_path(article), class:"flex-grow-1" %><i class="far fa-clock"></i>&nbsp;&nbsp;<%= article.created_at.strftime('%Y.%m.%d') %><p class="badge badge-secondary mb-0 mx-3"><%= article.level %></p>
               </li>
             <% end %>
           </ul>

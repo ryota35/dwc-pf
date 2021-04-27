@@ -32,10 +32,54 @@ body {
   font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
 }
 
+.user-edit {
+  font-size: 1.5rem;
+}
+
+.comment-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.comment-scroll::-webkit-scrollbar-track {
+  background: #DCDCDC;
+  border-radius: 10px;
+}
+
+.comment-scroll::-webkit-scrollbar-thumb {
+  background: #808080;
+  border-radius: 10px;
+}
+
+.comment-scroll {
+   max-height: 250px;
+   overflow-y: scroll;
+}
+
+.form-control::-webkit-scrollbar {
+  width: 8px;
+}
+
+.form-control::-webkit-scrollbar-track {
+  background: #DCDCDC;
+  border-radius: 10px;
+}
+
+.form-control::-webkit-scrollbar-thumb {
+  background: #808080;
+  border-radius: 10px;
+}
 
 input[type="radio"],input[type="checkbox"] {
  vertical-align: middle;
  margin-right: 2px;
+}
+
+input[type=text] {
+	font-size: 1.3rem;
+}
+
+.form-control {
+	font-size: 1.3rem;
 }
 
 .header {
@@ -107,10 +151,6 @@ label>p {
   flex-wrap: wrap;
 }
 
-// .question-p {
-//   white-space: nowrap;
-// }
-
 .top-image {
   background-image: image-url("img/top-image2.jpg");
   background-size: cover;
@@ -132,7 +172,7 @@ label>p {
 }
 
 .top-sentence {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
   font-family: 'Corben', cursive;
 }
@@ -258,11 +298,11 @@ table.profile th {
 
 #tab-menu li a {
   color: #fff;
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   font-weight: bold;
   text-decoration: none;
   display: block;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
   background: gray;
   border: 1px solid #000;
@@ -284,6 +324,25 @@ table.profile th {
   background: #fff;
   border: 1px solid #000;
   border-top: none;
+}
+
+.tab {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+.tab::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tab::-webkit-scrollbar-track {
+  background: #DCDCDC;
+  border-radius: 10px;
+}
+
+.tab::-webkit-scrollbar-thumb {
+  background: #808080;
+  border-radius: 10px;
 }
 
 .tab>ul>li {
@@ -399,7 +458,14 @@ table.profile th {
 
 .quiz-description {
   letter-spacing: 2px;
-  // line-height: 5px;
+}
+
+.quiz-table {
+  font-size: 1.5rem;
+}
+
+.article-image {
+  width: 100%;
 }
 
 
