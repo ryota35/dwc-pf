@@ -74,7 +74,7 @@ class Public::ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-    redirect_to admins_articles_path
+    redirect_to articles_path
   end
 
 
