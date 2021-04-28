@@ -32,6 +32,89 @@ body {
   font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
 }
 
+#logo_loader {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 101;
+  background-color: #AFEEEE;
+}
+
+.f_logo>h1 {
+  font-size: 5rem;
+  margin-top: 110px;
+  color: #fff;
+}
+
+#logo_loader .f_logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 550px;
+  height: 300px;
+  text-align: center;
+  background-color: #696969;
+}
+
+#logo_loader .f_logo img {
+  width: 100%;
+  height: auto;
+}
+
+#logo_loader .f_logo:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 110%;
+  background-color: #AFEEEE;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  animation: loadLogo 1.5s;
+}
+
+@keyframes loadLogo {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 0;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+#logo_loader .f_logo:before {
+    animation: loadLogo 1.5s;
+}
+
+#logo_loader.open {
+    animation-name: slideOut;
+    animation-fill-mode: forwards;
+    animation-duration: 2s;
+    animation-delay: 2s;
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+
 .user-edit {
   font-size: 1.5rem;
 }
