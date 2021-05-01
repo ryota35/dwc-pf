@@ -2,7 +2,6 @@ class Public::QuizzesController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    byebug
     @score = Score.new
     @score.results.build
     @quizzes = Quiz.quiz_set
