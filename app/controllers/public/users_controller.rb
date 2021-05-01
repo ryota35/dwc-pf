@@ -34,7 +34,12 @@ class Public::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    
     if @user.update(user_params)
+      tags = Vision.get_image_data(@user.itemimage)
+      tags.each do |tag|
+        @user.itemimage_tags.create(name: tag)
+      end
       redirect_to user_path(@user)
     else
       render "edit"

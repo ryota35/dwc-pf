@@ -1,0 +1,29 @@
+<div class="container pt-5">
+  <div class="row d-flex">
+
+    <% @users.each do |user| %>
+      <div class="col-md-6">
+
+        <div class="row mr-5 shadow">
+
+          <div class="col-md-6 bg-white pl-0">
+            <%= attachment_image_tag user, :itemimage, class:"img-fluid" %>
+          </div>
+
+          <div class="col-md-6 bg-white">
+            <p>imageタグ</p>
+            <% user.itemimage_tags.each do |tag| %>
+              <span class="badge badge-primary"><%= tag.name %></span>
+            <% end %>
+            <p><%= user.name %></p>
+          </div>
+
+        </div>
+        <!--< % user.items.each do |item| %>-->
+        <!--  <p>< %= item.name %>< %= item.maker %></p>-->
+        <!-- % end %>-->
+      </div>
+    <% end %>
+  <%= paginate @users %>
+  </div>
+</div>
