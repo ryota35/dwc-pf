@@ -2,6 +2,7 @@ class Public::QuizzesController < ApplicationController
   before_action :authenticate_user!
 
   def new
+    byebug
     @score = Score.new
     @score.results.build
     @quizzes = Quiz.quiz_set
@@ -13,7 +14,7 @@ class Public::QuizzesController < ApplicationController
 
     if score.save
       count_score = Score.last
-      number = count_score.results.where(judgement: 'true').count　
+      number = count_score.results.where(judgement: 'true').count
       score.update(score: number)
       redirect_to quiz_path(count_score)
     else
@@ -32,7 +33,7 @@ class Public::QuizzesController < ApplicationController
   end
 
   private
-  　
+
     def score_params
         params.require(:score).permit(:score, results_attributes:[:quiz_id, :selection_result, :judgement])
     end
