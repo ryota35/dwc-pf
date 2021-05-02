@@ -37,7 +37,7 @@ class Public::UsersController < ApplicationController
 
     if @user.update(user_params)
       @user.itemimage_tags.destroy_all
-      if @user.itemimage_id.balnk?
+      if @user.itemimage_id.blank?
       else
         tags = Vision.get_image_data(@user.itemimage)
         tags.each do |tag|
