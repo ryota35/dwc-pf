@@ -1,20 +1,21 @@
 <div class="container pt-5">
+  <h1>みんなのガジェット集</h1>
   <div class="row d-flex">
 
     <% @users.each do |user| %>
       <div class="col-md-5 offset-1 d-flex mt-5 shadow px-0 item-content">
 
-          <div class="parts">
-            <%= attachment_image_tag user, :itemimage %>
-          </div>
+        <div class="parts">
+          <%= attachment_image_tag user, :itemimage %>
+        </div>
 
-          <div class="parts bg-white">
-            <p>imageタグ</p>
-            <% user.itemimage_tags.each do |tag| %>
-              <span class="badge badge-info"><%= tag.name %></span>
-            <% end %>
-            <p class="d-flex align-items-end"><%= user.name %></p>
-          </div>
+        <div class="parts bg-white">
+          <p>imageタグ</p>
+          <% user.itemimage_tags.each do |tag| %>
+            <span class="badge badge-info"><%= tag.name %></span>
+          <% end %>
+          <p class="d-flex align-items-end"><%= user.name %></p>
+        </div>
 
       </div>
     <% end %>
