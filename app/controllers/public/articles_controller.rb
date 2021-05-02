@@ -32,7 +32,7 @@ class Public::ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user_id = current_user.id
 
-    if current_user.articles.last.title == @article.title
+    if current_user.articles.exists? && current_user.articles.last.title == @article.title
       redirect_to user_path(current_user)
     else
       if @article.save
