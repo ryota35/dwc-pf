@@ -93,15 +93,3 @@ $(function(){
   });
 });
 
-// history.pushState(null, null, location.href);
-// window.addEventListener('popstate', (e) => {
-//   history.go(1);
-// });
-
-history.pushState(null, null, null);
-$(window).on("popstate", function (event) {
-    if (!event.originalEvent.state) {
-        history.pushState(null, null, null);
-        return;
-    }
-});

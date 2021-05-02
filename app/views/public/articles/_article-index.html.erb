@@ -1,7 +1,7 @@
 <div>
-  <%= link_to "初級", articles_path(sort: 1, tag_id: tag), remote: true, class:"btn btn-lg btn-success px-4 mr-3" %>
-  <%= link_to "中級", articles_path(sort: 2, tag_id: tag), remote: true, class:"btn btn-lg btn-primary px-4 mr-3" %>
-  <%= link_to "上級", articles_path(sort: 3, tag_id: tag), remote: true, class:"btn btn-lg btn-danger px-4" %>
+  <%= link_to "初級", articles_path(sort: 0, tag_id: tag), remote: true, class:"btn btn-lg btn-success px-4 mr-3" %>
+  <%= link_to "中級", articles_path(sort: 1, tag_id: tag), remote: true, class:"btn btn-lg btn-primary px-4 mr-3" %>
+  <%= link_to "上級", articles_path(sort: 2, tag_id: tag), remote: true, class:"btn btn-lg btn-danger px-4" %>
 </div>
 
 <% if tag.nil? && level.nil? %>
@@ -44,7 +44,7 @@
   <div class="col-md-2 mt-5 ml-5 tag-index">
     <p><%= link_to articles_path, remote: true, class:"tag_link" do %>すべての記事・投稿<% end %></p>
     <% tags.each do |tag| %>
-      <p><%= link_to articles_path(tag_id: tag.id, sort: 0), remote: true, class:"tag_link" do %><%= tag.name %> (<%= tag.articles.count %>)<% end %></p>
+      <p><%= link_to articles_path(tag_id: tag.id), remote: true, class:"tag_link" do %><%= tag.name %> (<%= tag.articles.count %>)<% end %></p>
     <% end %>
   </div>
   

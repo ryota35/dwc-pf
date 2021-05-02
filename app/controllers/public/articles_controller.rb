@@ -8,46 +8,38 @@ class Public::ArticlesController < ApplicationController
   def index
     @tags = Tag.all
 
-    case (params[:sort])
-    when "0"
+    if params[:tag_id].nil?
+      @articles = Article.all.page(params[:page]).per(15).order("created_at DESC")
+    else
       @tag = Tag.find(params[:tag_id])
       @articles = @tag.articles.all.page(params[:page]).per(15).order("created_at DESC")
-    when "1"
+    end
+
+    case (params[:sort])
+    when "0"
       @level = "初級"
-      if (params[:tag_id]).nil?
-        @articles = Article.where(level: "初級").page(params[:page]).per(15).order("created_at DESC")
-      else
-        @tag = Tag.find(params[:tag_id])
-        @articles = @tag.articles.where(level: "初級").page(params[:page]).per(15).order("created_at DESC")
-      end
-    when "2"
+      @articles = @articles.where(level: "初級")
+    when "1"
       @level = "中級"
-      if (params[:tag_id]).nil?
-        @articles = Article.where(level: "中級").page(params[:page]).per(15).order("created_at DESC")
-      else
-        @tag = Tag.find(params[:tag_id])
-        @articles = @tag.articles.where(level: "中級").page(params[:page]).per(15).order("created_at DESC")
-      end
-    when "3"
+      @articles = @articles.where(level: "中級")
+    when "2"
       @level = "上級"
-      if (params[:tag_id]).nil?
-        @articles = Article.where(level: "上級").page(params[:page]).per(15).order("created_at DESC")
-      else
-        @tag = Tag.find(params[:tag_id])
-        @articles = @tag.articles.where(level: "上級").page(params[:page]).per(15).order("created_at DESC")
-      end
-    else
-      @articles = Article.all.page(params[:page]).per(15).order("created_at DESC")
+      @articles = @articles.where(level: "上級")
     end
   end
 
   def create
     @article = Article.new(article_params)
     @article.user_id = current_user.id
-    if @article.save
-      redirect_to article_path(@article), flash: {success: "ご投稿ありがとうございます。"}
+
+    if current_user.articles.last.title == @article.title
+      redirect_to user_path(current_user)
     else
-      render "new"
+      if @article.save
+        redirect_to article_path(@article), flash: {success: "ご投稿ありがとうございます。"}
+      else
+        render "new"
+      end
     end
   end
 
