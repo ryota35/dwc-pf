@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :quizzes, only: [:new, :create, :show]
     resources :contacts, only: [:new, :create, :show]
     resources :searches, only: [:index]
+    resources :items, only: [:index]
     resources :favorites, only: [:create, :destroy]
   end
 

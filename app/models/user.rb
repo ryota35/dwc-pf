@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :items, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :itemimage_tags, dependent: :destroy
   accepts_nested_attributes_for :items
 
   attachment :image
